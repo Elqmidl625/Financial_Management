@@ -9,6 +9,7 @@ import Foundation
 
 class DateHolder: ObservableObject {
     @Published var date = Date()    // Todays date
+    @Published var selectedDate: Date? = nil   // Selected date to scroll in lists
 }
 
 

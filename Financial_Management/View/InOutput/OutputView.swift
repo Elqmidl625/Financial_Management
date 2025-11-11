@@ -10,6 +10,7 @@ import SwiftUI
 struct OutputView: View {
     
     @ObservedObject var vm: EditInOutputViewModel
+    @Environment(\.dismiss) private var dismiss
     
     @StateObject var viewModel = InOutputViewModel()
     @State public var SelectedGained: Int = 0
@@ -58,18 +59,14 @@ struct OutputView: View {
             
                 else {
                     try vm.save()
-                    
-                    isSpentView = true
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.001){
-                        isSpentView = false
-                    }
+                    dismiss()
                 }
                 
             } catch {
                 print(error)
             }
         }, label: {
-            Text("Add Information")
+            Text("Add Transaction")
         })
         .alert(isPresented: $showAlert) {
             Alert(title: Text("Lack of information!"),
