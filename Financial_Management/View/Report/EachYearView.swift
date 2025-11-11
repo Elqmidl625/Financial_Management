@@ -35,8 +35,7 @@ struct sumView: View {
 
 struct EachYearView: View {
     
-    @State private var gained: Int = 0
-    @State private var spent: Int = 0
+    @StateObject private var vm = EachYearViewModel()
     
     @State private var isSpentView = true
     
@@ -112,7 +111,7 @@ struct EachYearView: View {
             if isSpentView {
                 pieChartView(categories: MockData.categories, isSpent: true)
                 
-                sumView(text: "Sum:", number: spent)
+                sumView(text: "Sum:", number: vm.spent)
                 
                 categoryListView(categories: MockData.categories, isSpent: true)
                 
@@ -120,73 +119,29 @@ struct EachYearView: View {
             } else {
                 pieChartView(categories: MockData.categoriesGained, isSpent: false)
                 
-                sumView(text: "Sum:", number: gained)
+                sumView(text: "Sum:", number: vm.gained)
                 
                 categoryListView(categories: MockData.categoriesGained, isSpent: false)
                 
             }
         }
         .onAppear() {
-            recalculateTotals()
+            vm.recalculateTotals(information: information, date: dateHolder.date)
         }
         .onChange(of: dateHolder.date){
-            recalculateTotals()
+            vm.recalculateTotals(information: information, date: dateHolder.date)
         }
     }
     
-    
-    private func recalculateTotals() {
-        spent = 0
-        gained = 0
-        
-        let calendar = Calendar.current
-        let currentYear = calendar.component(.year, from: dateHolder.date)
-        
-        information.forEach { info in
-            let infoYear = calendar.component(.year, from: info.dateOfInfor)
-            
-            // Check if the information's year match the currently displayed year
-            if infoYear == currentYear {
-                if info.spentOrGained {
-                    spent += (Int(info.money) ?? 0)
-                } else {
-                    gained += (Int(info.money) ?? 0)
-                }
-            }
-        }
-    }
     
     // Calculate the total money of a category
     private func calculateTotalMoney(for category: Categories, isSpent: Bool) -> Int {
-        let calendar = Calendar.current
-        let currentYear = calendar.component(.year, from: dateHolder.date)
-        
-        var total = 0
-        
-        information.forEach { info in
-            let infoYear = calendar.component(.year, from: info.dateOfInfor)
-            
-            if infoYear == currentYear {
-                if info.spentOrGained == isSpent && info.name == category.name {
-                    total += (Int(info.money) ?? 0)
-                }
-            }
-        }
-        
-        return total
+        vm.calculateTotalMoney(for: category, information: information, date: dateHolder.date, isSpent: isSpent)
     }
     
     // Calculate the percentage
     private func calculatePercent(for category: Categories, isSpent: Bool) -> Int {
-        let totalCategoryMoney = calculateTotalMoney(for: category, isSpent: isSpent)
-        let totalMoney = isSpent ? spent : gained
-        
-        guard totalMoney > 0 else {
-            return 0
-        }
-        
-        let percentage = (Double(totalCategoryMoney) * 100.0) / Double(totalMoney)
-        return Int(round(percentage))
+        vm.calculatePercent(for: category, information: information, date: dateHolder.date, isSpent: isSpent)
     }
     
     // Show the list
