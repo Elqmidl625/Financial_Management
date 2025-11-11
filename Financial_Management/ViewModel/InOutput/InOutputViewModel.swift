@@ -13,3 +13,5 @@ final class InOutputViewModel: ObservableObject{
                                GridItem(.flexible()),
                                GridItem(.flexible())]
 }
+
+

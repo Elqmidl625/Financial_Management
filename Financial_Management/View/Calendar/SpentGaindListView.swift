@@ -32,8 +32,7 @@ struct SumbarView: View {
 
 struct SpentGaindListView: View {
     
-    @State private var gained: Int = 0
-    @State private var spent: Int = 0
+    @StateObject private var vm = CalendarSummaryViewModel()
     
     @FetchRequest(fetchRequest: Information.all()) private var information
     
@@ -43,11 +42,11 @@ struct SpentGaindListView: View {
     
     var body: some View {
         VStack {
-            let sum = gained - spent
+            let sum = vm.totalGained - vm.totalSpent
             
             HStack (spacing: 0) {
-                SumbarView(content: "Gained", number: gained, color: .blue)
-                SumbarView(content: "Spent", number: spent, color: .red)
+                SumbarView(content: "Gained", number: vm.totalGained, color: .blue)
+                SumbarView(content: "Spent", number: vm.totalSpent, color: .red)
                 SumbarView(content: "Sum", number: sum, color: (sum >= 0 ? .blue : .red))
             }
             .frame(maxWidth: .infinity)
@@ -65,7 +64,7 @@ struct SpentGaindListView: View {
             )
             
             List {
-                ForEach(groupedInformation(), id: \.key) { date, infos in
+                ForEach(vm.groupedInformation(information: information, forMonthOf: dateHolder.date), id: \.key) { date, infos in
                     Section(header: Text(date)) {
                         ForEach(infos) { info in
                             SpentGainedView(information: info)
@@ -87,70 +86,13 @@ struct SpentGaindListView: View {
             }
         }
         .onAppear() {
-            recalculateTotals()
+            vm.recalculateTotals(information: information, forMonthOf: dateHolder.date)
         }
         .onChange(of: dateHolder.date){
-            recalculateTotals()
+            vm.recalculateTotals(information: information, forMonthOf: dateHolder.date)
         }
     }
     
-    // Calculation the numbers in sumbar
-    private func recalculateTotals() {
-        spent = 0
-        gained = 0
-        
-        let calendar = Calendar.current
-        let currentMonth = calendar.component(.month, from: dateHolder.date)
-        let currentYear = calendar.component(.year, from: dateHolder.date)
-        
-        information.forEach { info in
-            let infoMonth = calendar.component(.month, from: info.dateOfInfor)
-            let infoYear = calendar.component(.year, from: info.dateOfInfor)
-            
-            // Check if the information's month and year match the currently displayed month and year
-            if infoMonth == currentMonth && infoYear == currentYear {
-                if info.spentOrGained {
-                    spent += (Int(info.money) ?? 0)
-                } else {
-                    gained += (Int(info.money) ?? 0)
-                }
-            }
-        }
-    }
-    
-    // Need to learn more about this function:
-    // This func return to all days and infors of each day
-    private func groupedInformation() -> [(key: String, value: [Information])] {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .none
-        
-        let calendar = Calendar.current
-        let currentMonth = calendar.component(.month, from: dateHolder.date)
-        let currentYear = calendar.component(.year, from: dateHolder.date)
-        
-        // Filter and sort the information array for the currently displayed month
-        let filteredAndSortedInformation = information.filter { info in
-            let infoMonth = calendar.component(.month, from: info.dateOfInfor)
-            let infoYear = calendar.component(.year, from: info.dateOfInfor)
-            return infoMonth == currentMonth && infoYear == currentYear
-        }.sorted { $0.dateOfInfor > $1.dateOfInfor }
-        
-        // Group the filtered and sorted information by the formatted date string
-        var grouped: [(key: String, value: [Information])] = []
-        
-        for info in filteredAndSortedInformation {
-            let dateString = formatter.string(from: info.dateOfInfor)
-            
-            if let index = grouped.firstIndex(where: { $0.key == dateString }) {
-                grouped[index].value.append(info)
-            } else {
-                grouped.append((key: dateString, value: [info]))
-            }
-        }
-        
-        return grouped
-    }
 }
 
 // Delete information
@@ -162,7 +104,7 @@ private extension SpentGaindListView {
         Task(priority: .background) {
             try await context.perform {
                 try context.save()
-                recalculateTotals()
+                vm.recalculateTotals(information: self.information, forMonthOf: dateHolder.date)
             }
         }
     }

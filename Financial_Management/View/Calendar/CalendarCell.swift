@@ -11,6 +11,7 @@ struct CalendarCell: View {
     
     @EnvironmentObject var dateHolder: DateHolder
     @FetchRequest(fetchRequest: Information.all()) private var information
+    private let vm = CalendarCellViewModel()
     
     let count: Int
     let startingSpaces: Int
@@ -23,12 +24,12 @@ struct CalendarCell: View {
                 .foregroundColor(textColor(type: monthStruct().monthType))
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             
-            Text(totalGained() != 0 ? "\(totalGained())": "")
+            Text(vm.totalForDay(information: information, date: dateHolder.date, day: monthStruct().dayInt, isSpent: false) != 0 ? "\(vm.totalForDay(information: information, date: dateHolder.date, day: monthStruct().dayInt, isSpent: false))": "")
                 .font(.system(size: 10))
                 .padding(.bottom, 5)
                 .foregroundColor(.blue)
             
-            Text(totalSpent() != 0 ? "\(totalSpent())": "")
+            Text(vm.totalForDay(information: information, date: dateHolder.date, day: monthStruct().dayInt, isSpent: true) != 0 ? "\(vm.totalForDay(information: information, date: dateHolder.date, day: monthStruct().dayInt, isSpent: true))": "")
                 .font(.system(size: 10))
                 .padding(.bottom, 5)
                 .foregroundColor(.red)
@@ -53,48 +54,6 @@ struct CalendarCell: View {
         
         let day = count - start
         return MonthStruct(monthType: MonthType.Current, dayInt: day)
-    }
-    
-    // Calculate total gained for the day
-    func totalGained() -> Int {
-        let day = monthStruct().dayInt
-        let monthYearString = CalendarHelper().monthYearString(dateHolder.date)
-        
-        let filteredInfo = information.filter { info in
-            let infoDay = Calendar.current.component(.day, from: info.dateOfInfor)
-            let infoMonthYearString = CalendarHelper().monthYearString(info.dateOfInfor)
-            let monthType = monthStruct().monthType
-            return infoDay == day && infoMonthYearString == monthYearString && !info.spentOrGained && monthType == .Current
-        }
-        
-        var total = 0
-        for info in filteredInfo {
-            if let moneyValue = Int(info.money) {
-                total += moneyValue
-            }
-        }
-        return total
-    }
-        
-        // Calculate total spent for the day
-    func totalSpent() -> Int {
-        let day = monthStruct().dayInt
-        let monthYearString = CalendarHelper().monthYearString(dateHolder.date)
-        
-        let filteredInfo = information.filter { info in
-            let infoDay = Calendar.current.component(.day, from: info.dateOfInfor)
-            let infoMonthYearString = CalendarHelper().monthYearString(info.dateOfInfor)
-            let monthType = monthStruct().monthType
-            return infoDay == day && infoMonthYearString == monthYearString && info.spentOrGained && monthType == .Current
-        }
-        
-        var total = 0
-        for info in filteredInfo {
-            if let moneyValue = Int(info.money) {
-                total += moneyValue
-            }
-        }
-        return total
     }
     
 }
