@@ -41,55 +41,66 @@ struct SpentGaindListView: View {
     
     
     var body: some View {
-        VStack {
-            let sum = vm.totalGained - vm.totalSpent
-            
-            HStack (spacing: 0) {
-                SumbarView(content: "Gained", number: vm.totalGained, color: .blue)
-                SumbarView(content: "Spent", number: vm.totalSpent, color: .red)
-                SumbarView(content: "Sum", number: sum, color: (sum >= 0 ? .blue : .red))
-            }
-            .frame(maxWidth: .infinity)
-            .padding(8)
-            .overlay(
-                VStack {
-                    Rectangle()
-                        .frame(height: 2)
-                        .foregroundColor(.blue)
-                    Spacer()
-                    Rectangle()
-                        .frame(height: 2)
-                        .foregroundColor(.blue)
+        ScrollViewReader { proxy in
+            VStack {
+                let sum = vm.totalGained - vm.totalSpent
+                
+                HStack (spacing: 0) {
+                    SumbarView(content: "Gained", number: vm.totalGained, color: .blue)
+                    SumbarView(content: "Spent", number: vm.totalSpent, color: .red)
+                    SumbarView(content: "Sum", number: sum, color: (sum >= 0 ? .blue : .red))
                 }
-            )
-            
-            List {
-                ForEach(vm.groupedInformation(information: information, forMonthOf: dateHolder.date), id: \.key) { date, infos in
-                    Section(header: Text(date)) {
-                        ForEach(infos) { info in
-                            SpentGainedView(information: info)
-                                .swipeActions(allowsFullSwipe: true) {
-                                    Button(role: .destructive) {
-                                        do {
-                                            try delete(info)
-                                        } catch {
-                                            print(error)
+                .frame(maxWidth: .infinity)
+                .padding(8)
+                .overlay(
+                    VStack {
+                        Rectangle()
+                            .frame(height: 2)
+                            .foregroundColor(.blue)
+                        Spacer()
+                        Rectangle()
+                            .frame(height: 2)
+                            .foregroundColor(.blue)
+                    }
+                )
+                
+                List {
+                    ForEach(vm.groupedInformation(information: information, forMonthOf: dateHolder.date), id: \.key) { date, infos in
+                        Section(header: Text(date).id(date)) {
+                            ForEach(infos) { info in
+                                SpentGainedView(information: info)
+                                    .swipeActions(allowsFullSwipe: true) {
+                                        Button(role: .destructive) {
+                                            do {
+                                                try delete(info)
+                                            } catch {
+                                                print(error)
+                                            }
+                                        } label: {
+                                            Label("", systemImage: "trash")
                                         }
-                                    } label: {
-                                        Label("", systemImage: "trash")
+                                        .tint(.red)
                                     }
-                                    .tint(.red)
-                                }
+                            }
                         }
                     }
                 }
             }
-        }
-        .onAppear() {
-            vm.recalculateTotals(information: information, forMonthOf: dateHolder.date)
-        }
-        .onChange(of: dateHolder.date){
-            vm.recalculateTotals(information: information, forMonthOf: dateHolder.date)
+            .onAppear() {
+                vm.recalculateTotals(information: information, forMonthOf: dateHolder.date)
+            }
+            .onChange(of: dateHolder.date){
+                vm.recalculateTotals(information: information, forMonthOf: dateHolder.date)
+            }
+            .onReceive(dateHolder.$selectedDate.compactMap { $0 }) { selected in
+                let formatter = DateFormatter()
+                formatter.dateStyle = .medium
+                formatter.timeStyle = .none
+                let key = formatter.string(from: selected)
+                withAnimation {
+                    proxy.scrollTo(key, anchor: .top)
+                }
+            }
         }
     }
     

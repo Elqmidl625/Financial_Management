@@ -11,6 +11,8 @@ import SwiftUI
 struct CalendarView: View {
     
     @EnvironmentObject var dateHolder: DateHolder
+    @State private var showInOutputSheet = false
+    @State private var sheetDate = Date()
     
     var body: some View {
         VStack {
@@ -27,6 +29,9 @@ struct CalendarView: View {
             
             
             // Add here
+        }
+        .sheet(isPresented: $showInOutputSheet) {
+            InOutputView(initialDate: sheetDate)
         }
     }
     
@@ -56,6 +61,12 @@ struct CalendarView: View {
                 HStack (spacing: 1){
                     ForEach(1..<8) { column in
                         let count = column + row * 7
+                        // compute month type and day for tap handling
+                        let start = startingSpaces == -1 ? startingSpaces + 7 : startingSpaces
+                        let isPrev = count <= start
+                        let isNext = (count - start) > dayInMonth
+                        let isCurrent = !isPrev && !isNext
+                        let dayInt = isPrev ? (daysInPrevMonth + count - start) : (isNext ? (count - start - dayInMonth) : (count - start))
                         if CalendarHelper().isTodayOnCalendar(count: count,
                                                               startingSpaces: startingSpaces,
                                                               daysInMonth: dayInMonth,
@@ -67,6 +78,26 @@ struct CalendarView: View {
                                              daysInMonth: dayInMonth,
                                              daysInPrevMonth: daysInPrevMonth)
                                 .environmentObject(dateHolder)
+                                .onTapGesture {
+                                    if isCurrent {
+                                        var comps = Calendar.current.dateComponents([.year, .month], from: dateHolder.date)
+                                        comps.day = dayInt
+                                        if let selected = Calendar.current.date(from: comps) {
+                                            dateHolder.selectedDate = selected
+                                        }
+                                    }
+                                }
+                                .onTapGesture(count: 2) {
+                                    if isCurrent {
+                                        var comps = Calendar.current.dateComponents([.year, .month], from: dateHolder.date)
+                                        comps.day = dayInt
+                                        if let selected = Calendar.current.date(from: comps) {
+                                            dateHolder.selectedDate = selected
+                                            sheetDate = selected
+                                            showInOutputSheet = true
+                                        }
+                                    }
+                                }
                                 
                                 Rectangle()
                                     .foregroundColor(.gray)
@@ -80,6 +111,26 @@ struct CalendarView: View {
                                          daysInMonth: dayInMonth,
                                          daysInPrevMonth: daysInPrevMonth)
                             .environmentObject(dateHolder)
+                            .onTapGesture {
+                                if isCurrent {
+                                    var comps = Calendar.current.dateComponents([.year, .month], from: dateHolder.date)
+                                    comps.day = dayInt
+                                    if let selected = Calendar.current.date(from: comps) {
+                                        dateHolder.selectedDate = selected
+                                    }
+                                }
+                            }
+                            .onTapGesture(count: 2) {
+                                if isCurrent {
+                                    var comps = Calendar.current.dateComponents([.year, .month], from: dateHolder.date)
+                                    comps.day = dayInt
+                                    if let selected = Calendar.current.date(from: comps) {
+                                        dateHolder.selectedDate = selected
+                                        sheetDate = selected
+                                        showInOutputSheet = true
+                                    }
+                                }
+                            }
                         }
                     }
                 }

@@ -10,6 +10,7 @@ import SwiftUI
 struct InOutputView: View {
     
     @State var isSpentView = true
+    var initialDate: Date? = nil
     var provider = InformationProvider.shared
     
     var body: some View {
@@ -59,11 +60,23 @@ struct InOutputView: View {
                 .padding(.vertical)
                 
                 if isSpentView {
-                    InputView(vm: .init(provider: provider),
+                    InputView(vm: {
+                        let vm = EditInOutputViewModel(provider: provider)
+                        if let date = initialDate {
+                            vm.information.dateOfInfor = date
+                        }
+                        return vm
+                    }(),
                               isSpentView: $isSpentView)
                     
                 } else {
-                    OutputView(vm: .init(provider: provider),
+                    OutputView(vm: {
+                        let vm = EditInOutputViewModel(provider: provider)
+                        if let date = initialDate {
+                            vm.information.dateOfInfor = date
+                        }
+                        return vm
+                    }(),
                                isSpentView: $isSpentView)
                 }
                 
