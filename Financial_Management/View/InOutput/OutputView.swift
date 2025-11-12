@@ -35,7 +35,7 @@ struct OutputView: View {
             }
             
             Section ("Categories:") {
-                    LazyVGrid(columns: viewModel.columns, spacing: 25) {
+                    LazyVGrid(columns: viewModel.columns, spacing: 10) {
                         ForEach(MockData.categoriesGained){ categoryGained in
                             EachCategoryView(categories: categoryGained,
                                              Selected: $SelectedGained)
