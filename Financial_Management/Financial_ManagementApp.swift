@@ -15,6 +15,12 @@ struct Financial_ManagementApp: App {
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, InformationProvider.shared.viewContext)
+                .onAppear {
+                    // Ensure there is always a current user id; create a default if missing
+                    if UserDefaults.standard.string(forKey: "currentUserId") == nil {
+                        UserDefaults.standard.set("default", forKey: "currentUserId")
+                    }
+                }
         }
     }
 }

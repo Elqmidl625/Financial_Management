@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MoreView: View {
+    @StateObject private var session = UserSession.shared
     var body: some View {
         VStack(spacing: 0) {
             Text("More")
@@ -15,6 +16,33 @@ struct MoreView: View {
                 .fontWeight(.bold)
             
             List {
+                Section("Accounts (Test)") {
+                    HStack {
+                        Image(systemName: "person")
+                        Text("Current userId")
+                        Spacer()
+                        Text(session.currentUserId)
+                            .foregroundColor(.gray)
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.7)
+                    }
+                    Button {
+                        try? UserSession.shared.ensureUser(email: "alice@example.com", userName: "Alice")
+                    } label: {
+                        HStack {
+                            Image(systemName: "person.crop.circle.badge.plus")
+                            Text("Use Alice")
+                        }
+                    }
+                    Button {
+                        try? UserSession.shared.ensureUser(email: "bob@example.com", userName: "Bob")
+                    } label: {
+                        HStack {
+                            Image(systemName: "person.crop.circle.badge.plus")
+                            Text("Use Bob")
+                        }
+                    }
+                }
                 Section() {
                     HStack {
                         Image(systemName: "gearshape")

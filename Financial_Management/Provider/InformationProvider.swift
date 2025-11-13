@@ -28,6 +28,10 @@ final class InformationProvider {
 //        if EnvironmentValues.isPreview {
 //            persistentContainer.persistentStoreDescriptions.first?.url = .init(fileURLWithPath: "/dev/null")
 //        }
+        if let description = persistentContainer.persistentStoreDescriptions.first {
+            description.shouldMigrateStoreAutomatically = true
+            description.shouldInferMappingModelAutomatically = true
+        }
         persistentContainer.viewContext.automaticallyMergesChangesFromParent = true
         persistentContainer.loadPersistentStores { _, error in
             if let error {

@@ -20,9 +20,23 @@ final class EditInOutputViewModel: ObservableObject {
     }
     
     func save() throws {
+        // Attach to current user before saving
+        let currentId = UserDefaults.standard.string(forKey: "currentUserId") ?? "default"
+        information.userId = currentId
         if context.hasChanges {
             try context.save()
         }
+    }
+    
+    func startNewInformation(date: Date? = nil, spentOrGained: Bool? = nil) {
+        let newInfo = Information(context: self.context)
+        if let date {
+            newInfo.dateOfInfor = date
+        }
+        if let spentOrGained {
+            newInfo.spentOrGained = spentOrGained
+        }
+        self.information = newInfo
     }
 }
 

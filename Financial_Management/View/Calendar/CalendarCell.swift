@@ -10,7 +10,7 @@ import SwiftUI
 struct CalendarCell: View {
     
     @EnvironmentObject var dateHolder: DateHolder
-    @FetchRequest(fetchRequest: Information.all()) private var information
+    @FetchRequest(fetchRequest: Information.allForCurrentUser()) private var information
     private let vm = CalendarCellViewModel()
     
     let count: Int
