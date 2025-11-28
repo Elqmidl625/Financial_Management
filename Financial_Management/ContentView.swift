@@ -42,6 +42,11 @@ struct ContentView: View {
                 }
         }
         .id(session.currentUserId)   // Recreate the view tree when switching users
+        .fullScreenCover(isPresented: Binding(get: {
+            session.currentUserId == "default"
+        }, set: { _ in })) {
+            AuthView()
+        }
     }
 }
 

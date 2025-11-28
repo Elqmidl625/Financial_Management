@@ -44,6 +44,9 @@
 		44F0A1112C90ABB300000011 /* CalendarCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F0A10D2C90ABB20000000D /* CalendarCellViewModel.swift */; };
 		44F0A1122C90ABB300000012 /* EachMonthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F0A10E2C90ABB20000000E /* EachMonthViewModel.swift */; };
 		44F0A1132C90ABB300000013 /* EachYearViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F0A10F2C90ABB30000000F /* EachYearViewModel.swift */; };
+		44BBB00A2D00000200000001 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BBB0092D00000200000001 /* SignUpView.swift */; };
+		44BBB00C2D00000200000001 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BBB00B2D00000200000001 /* LogInView.swift */; };
+		44BBB00E2D00000300000001 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BBB00D2D00000300000001 /* AuthView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +108,9 @@
 		44F0A10D2C90ABB20000000D /* CalendarCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCellViewModel.swift; sourceTree = "<group>"; };
 		44F0A10E2C90ABB20000000E /* EachMonthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachMonthViewModel.swift; sourceTree = "<group>"; };
 		44F0A10F2C90ABB30000000F /* EachYearViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachYearViewModel.swift; sourceTree = "<group>"; };
+		44BBB0092D00000200000001 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		44BBB00B2D00000200000001 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
+		44BBB00D2D00000300000001 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,6 +286,9 @@
 			isa = PBXGroup;
 			children = (
 				44C8295E2C80BAA1005B8992 /* MoreView.swift */,
+				44BBB0092D00000200000001 /* SignUpView.swift */,
+				44BBB00B2D00000200000001 /* LogInView.swift */,
+				44BBB00D2D00000300000001 /* AuthView.swift */,
 			);
 			path = More;
 			sourceTree = "<group>";
@@ -458,6 +467,9 @@
 				44ADD0902C5B4622006417E4 /* InOutputView.swift in Sources */,
 				441F72842C606F890022CD68 /* EditInOutputViewModel.swift in Sources */,
 				44C8295F2C80BAA1005B8992 /* MoreView.swift in Sources */,
+				44BBB00A2D00000200000001 /* SignUpView.swift in Sources */,
+				44BBB00C2D00000200000001 /* LogInView.swift in Sources */,
+				44BBB00E2D00000300000001 /* AuthView.swift in Sources */,
 				44A367DD2C709CEF001E3329 /* EachElementView.swift in Sources */,
 				441F72702C5CE6E80022CD68 /* DateScrollerView.swift in Sources */,
 				441F726C2C5CE22C0022CD68 /* CalendarView.swift in Sources */,
