@@ -59,6 +59,8 @@ struct InputView: View {
             
                 else {
                     try vm.save()
+                    // Prepare a fresh draft so subsequent adds create new rows
+                    vm.startNewInformation(date: vm.information.dateOfInfor, spentOrGained: true)
                     dismiss()
                 }
                 

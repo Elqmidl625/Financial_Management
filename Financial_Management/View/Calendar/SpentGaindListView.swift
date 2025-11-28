@@ -34,7 +34,7 @@ struct SpentGaindListView: View {
     
     @StateObject private var vm = CalendarSummaryViewModel()
     
-    @FetchRequest(fetchRequest: Information.all()) private var information
+    @FetchRequest(fetchRequest: Information.allForCurrentUser()) private var information
     
     var provider = InformationProvider.shared
     @EnvironmentObject var dateHolder: DateHolder

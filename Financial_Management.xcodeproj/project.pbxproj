@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44BBB0042D00000100000001 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BBB0032D00000100000001 /* UserSession.swift */; };
+		44BBB0062D00000100000001 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BBB0052D00000100000001 /* User.swift */; };
 		441F72612C5C79C90022CD68 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441F72602C5C79C90022CD68 /* Categories.swift */; };
 		441F72632C5C805D0022CD68 /* EachCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441F72622C5C805D0022CD68 /* EachCategoryView.swift */; };
 		441F72672C5CCF6D0022CD68 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441F72662C5CCF6D0022CD68 /* InputView.swift */; };
@@ -42,6 +44,9 @@
 		44F0A1112C90ABB300000011 /* CalendarCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F0A10D2C90ABB20000000D /* CalendarCellViewModel.swift */; };
 		44F0A1122C90ABB300000012 /* EachMonthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F0A10E2C90ABB20000000E /* EachMonthViewModel.swift */; };
 		44F0A1132C90ABB300000013 /* EachYearViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F0A10F2C90ABB30000000F /* EachYearViewModel.swift */; };
+		44BBB00A2D00000200000001 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BBB0092D00000200000001 /* SignUpView.swift */; };
+		44BBB00C2D00000200000001 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BBB00B2D00000200000001 /* LogInView.swift */; };
+		44BBB00E2D00000300000001 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BBB00D2D00000300000001 /* AuthView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +67,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		44BBB0032D00000100000001 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
+		44BBB0052D00000100000001 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		441F72602C5C79C90022CD68 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		441F72622C5C805D0022CD68 /* EachCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachCategoryView.swift; sourceTree = "<group>"; };
 		441F72662C5CCF6D0022CD68 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
@@ -77,6 +84,7 @@
 		441F727D2C6064880022CD68 /* InformationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationProvider.swift; sourceTree = "<group>"; };
 		441F72812C606A620022CD68 /* SpentGainedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpentGainedView.swift; sourceTree = "<group>"; };
 		441F72832C606F890022CD68 /* EditInOutputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditInOutputViewModel.swift; sourceTree = "<group>"; };
+		443699922EC5B9B00057E30F /* Financial_Management_v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Financial_Management_v2.xcdatamodel; sourceTree = "<group>"; };
 		44A367D82C6DDD79001E3329 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 		44A367DA2C6DE0B6001E3329 /* EachMonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachMonthView.swift; sourceTree = "<group>"; };
 		44A367DC2C709CEF001E3329 /* EachElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachElementView.swift; sourceTree = "<group>"; };
@@ -100,6 +108,9 @@
 		44F0A10D2C90ABB20000000D /* CalendarCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCellViewModel.swift; sourceTree = "<group>"; };
 		44F0A10E2C90ABB20000000E /* EachMonthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachMonthViewModel.swift; sourceTree = "<group>"; };
 		44F0A10F2C90ABB30000000F /* EachYearViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachYearViewModel.swift; sourceTree = "<group>"; };
+		44BBB0092D00000200000001 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		44BBB00B2D00000200000001 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
+		44BBB00D2D00000300000001 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,44 +138,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		44F0A1002C90AAA100000001 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				44F0A1012C90AAA100000002 /* InOutput */,
-				44F0A1022C90AAA100000003 /* Calendar */,
-				44F0A1032C90ABB100000004 /* Report */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		44F0A1012C90AAA100000002 /* InOutput */ = {
-			isa = PBXGroup;
-			children = (
-				44ADD0912C5B4666006417E4 /* InOutputViewModel.swift */,
-				441F72832C606F890022CD68 /* EditInOutputViewModel.swift */,
-			);
-			path = InOutput;
-			sourceTree = "<group>";
-		};
-		44F0A1022C90AAA100000003 /* Calendar */ = {
-			isa = PBXGroup;
-			children = (
-				441F726D2C5CE64F0022CD68 /* DateHolder.swift */,
-				44F0A10C2C90ABB20000000C /* CalendarSummaryViewModel.swift */,
-				44F0A10D2C90ABB20000000D /* CalendarCellViewModel.swift */,
-			);
-			path = Calendar;
-			sourceTree = "<group>";
-		};
-		44F0A1032C90ABB100000004 /* Report */ = {
-			isa = PBXGroup;
-			children = (
-				44F0A10E2C90ABB20000000E /* EachMonthViewModel.swift */,
-				44F0A10F2C90ABB30000000F /* EachYearViewModel.swift */,
-			);
-			path = Report;
-			sourceTree = "<group>";
-		};
 		441F72642C5C86530022CD68 /* InOutput */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				441F727D2C6064880022CD68 /* InformationProvider.swift */,
+				44BBB0032D00000100000001 /* UserSession.swift */,
 			);
 			path = Provider;
 			sourceTree = "<group>";
@@ -301,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				441F727A2C6061910022CD68 /* Information.swift */,
+				44BBB0052D00000100000001 /* User.swift */,
 				441F72652C5C86670022CD68 /* InOutput */,
 				447D04282C67589800F0CB33 /* Calendar */,
 			);
@@ -311,8 +286,49 @@
 			isa = PBXGroup;
 			children = (
 				44C8295E2C80BAA1005B8992 /* MoreView.swift */,
+				44BBB0092D00000200000001 /* SignUpView.swift */,
+				44BBB00B2D00000200000001 /* LogInView.swift */,
+				44BBB00D2D00000300000001 /* AuthView.swift */,
 			);
 			path = More;
+			sourceTree = "<group>";
+		};
+		44F0A1002C90AAA100000001 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				44F0A1012C90AAA100000002 /* InOutput */,
+				44F0A1022C90AAA100000003 /* Calendar */,
+				44F0A1032C90ABB100000004 /* Report */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		44F0A1012C90AAA100000002 /* InOutput */ = {
+			isa = PBXGroup;
+			children = (
+				44ADD0912C5B4666006417E4 /* InOutputViewModel.swift */,
+				441F72832C606F890022CD68 /* EditInOutputViewModel.swift */,
+			);
+			path = InOutput;
+			sourceTree = "<group>";
+		};
+		44F0A1022C90AAA100000003 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				441F726D2C5CE64F0022CD68 /* DateHolder.swift */,
+				44F0A10C2C90ABB20000000C /* CalendarSummaryViewModel.swift */,
+				44F0A10D2C90ABB20000000D /* CalendarCellViewModel.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		44F0A1032C90ABB100000004 /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				44F0A10E2C90ABB20000000E /* EachMonthViewModel.swift */,
+				44F0A10F2C90ABB30000000F /* EachYearViewModel.swift */,
+			);
+			path = Report;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -445,11 +461,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44BBB0042D00000100000001 /* UserSession.swift in Sources */,
 				44F0A1102C90ABB300000010 /* CalendarSummaryViewModel.swift in Sources */,
 				441F726E2C5CE64F0022CD68 /* DateHolder.swift in Sources */,
 				44ADD0902C5B4622006417E4 /* InOutputView.swift in Sources */,
 				441F72842C606F890022CD68 /* EditInOutputViewModel.swift in Sources */,
 				44C8295F2C80BAA1005B8992 /* MoreView.swift in Sources */,
+				44BBB00A2D00000200000001 /* SignUpView.swift in Sources */,
+				44BBB00C2D00000200000001 /* LogInView.swift in Sources */,
+				44BBB00E2D00000300000001 /* AuthView.swift in Sources */,
 				44A367DD2C709CEF001E3329 /* EachElementView.swift in Sources */,
 				441F72702C5CE6E80022CD68 /* DateScrollerView.swift in Sources */,
 				441F726C2C5CE22C0022CD68 /* CalendarView.swift in Sources */,
@@ -465,6 +485,7 @@
 				44ADD0922C5B4666006417E4 /* InOutputViewModel.swift in Sources */,
 				44A367D92C6DDD79001E3329 /* ReportView.swift in Sources */,
 				44ADD0592C5A7783006417E4 /* ContentView.swift in Sources */,
+				44BBB0062D00000100000001 /* User.swift in Sources */,
 				441F727B2C6061910022CD68 /* Information.swift in Sources */,
 				441F72772C5DDC7D0022CD68 /* MonthStruct.swift in Sources */,
 				441F72822C606A620022CD68 /* SpentGainedView.swift in Sources */,
@@ -809,9 +830,10 @@
 		44ADD0612C5A7784006417E4 /* Financial_Management.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				443699922EC5B9B00057E30F /* Financial_Management_v2.xcdatamodel */,
 				44ADD0622C5A7784006417E4 /* Financial_Management.xcdatamodel */,
 			);
-			currentVersion = 44ADD0622C5A7784006417E4 /* Financial_Management.xcdatamodel */;
+			currentVersion = 443699922EC5B9B00057E30F /* Financial_Management_v2.xcdatamodel */;
 			path = Financial_Management.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

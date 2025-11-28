@@ -40,7 +40,7 @@ struct EachMonthView: View {
     @State private var isSpentView = true
     
     @EnvironmentObject var dateHolder: DateHolder
-    @FetchRequest(fetchRequest: Information.all()) private var information
+    @FetchRequest(fetchRequest: Information.allForCurrentUser()) private var information
     
     var body: some View {
         VStack {
@@ -155,7 +155,7 @@ struct EachMonthView: View {
                 ForEach(categories) { category in
                     let totalMoney = calculateTotalMoney(for: category, isSpent: isSpent)
                     let percent = calculatePercent(for: category, isSpent: isSpent)
-                    if percent != 0 {
+                    if totalMoney > 0 {
                         EachElementView(categories: category,
                                         money: totalMoney,
                                         percent: percent)
@@ -168,9 +168,9 @@ struct EachMonthView: View {
     private func pieChartView(categories: [Categories], isSpent: Bool) -> some View {
         Chart {
             ForEach(categories) { category in
-                let percent = calculatePercent(for: category, isSpent: isSpent)
-                if percent != 0 {
-                    SectorMark(angle: .value("Category", percent), 
+                let amount = calculateTotalMoney(for: category, isSpent: isSpent)
+                if amount > 0 {
+                    SectorMark(angle: .value("Amount", amount), 
                                innerRadius: .ratio(0.5),
                                angularInset: 1)
                         .foregroundStyle(by: .value("Name", category.name))
