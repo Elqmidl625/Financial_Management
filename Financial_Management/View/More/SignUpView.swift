@@ -38,6 +38,7 @@ struct SignUpView: View {
                     Button("Sign Up") {
                         signUp()
                     }
+                    .accessibilityIdentifier("SignUpSubmit")
                 }
             }
             .navigationTitle("Sign Up")
