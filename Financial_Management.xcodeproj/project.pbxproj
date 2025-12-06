@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		441F72612C5C79C90022CD68 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441F72602C5C79C90022CD68 /* Categories.swift */; };
 		441F72632C5C805D0022CD68 /* EachCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441F72622C5C805D0022CD68 /* EachCategoryView.swift */; };
-		441F72672C5CCF6D0022CD68 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441F72662C5CCF6D0022CD68 /* InputView.swift */; };
-		441F72692C5CCF760022CD68 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441F72682C5CCF760022CD68 /* OutputView.swift */; };
+		441F72672C5CCF6D0022CD68 /* InputSpendingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441F72662C5CCF6D0022CD68 /* InputSpendingView.swift */; };
+		441F72692C5CCF760022CD68 /* InputIncomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441F72682C5CCF760022CD68 /* InputIncomeView.swift */; };
 		441F726C2C5CE22C0022CD68 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441F726B2C5CE22C0022CD68 /* CalendarView.swift */; };
 		441F726E2C5CE64F0022CD68 /* DateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441F726D2C5CE64F0022CD68 /* DateHolder.swift */; };
 		441F72702C5CE6E80022CD68 /* DateScrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441F726F2C5CE6E80022CD68 /* DateScrollerView.swift */; };
@@ -21,7 +21,7 @@
 		441F727B2C6061910022CD68 /* Information.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441F727A2C6061910022CD68 /* Information.swift */; };
 		441F727E2C6064880022CD68 /* InformationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441F727D2C6064880022CD68 /* InformationProvider.swift */; };
 		441F72822C606A620022CD68 /* SpentGainedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441F72812C606A620022CD68 /* SpentGainedView.swift */; };
-		441F72842C606F890022CD68 /* EditInOutputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441F72832C606F890022CD68 /* EditInOutputViewModel.swift */; };
+		441F72842C606F890022CD68 /* EditInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441F72832C606F890022CD68 /* EditInputViewModel.swift */; };
 		44A367D92C6DDD79001E3329 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A367D82C6DDD79001E3329 /* ReportView.swift */; };
 		44A367DB2C6DE0B6001E3329 /* EachMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A367DA2C6DE0B6001E3329 /* EachMonthView.swift */; };
 		44A367DD2C709CEF001E3329 /* EachElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A367DC2C709CEF001E3329 /* EachElementView.swift */; };
@@ -33,8 +33,8 @@
 		44ADD06D2C5A7784006417E4 /* Financial_ManagementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ADD06C2C5A7784006417E4 /* Financial_ManagementTests.swift */; };
 		44ADD0772C5A7784006417E4 /* Financial_ManagementUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ADD0762C5A7784006417E4 /* Financial_ManagementUITests.swift */; };
 		44ADD0792C5A7784006417E4 /* Financial_ManagementUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ADD0782C5A7784006417E4 /* Financial_ManagementUITestsLaunchTests.swift */; };
-		44ADD0902C5B4622006417E4 /* InOutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ADD08F2C5B4622006417E4 /* InOutputView.swift */; };
-		44ADD0922C5B4666006417E4 /* InOutputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ADD0912C5B4666006417E4 /* InOutputViewModel.swift */; };
+		44ADD0902C5B4622006417E4 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ADD08F2C5B4622006417E4 /* InputView.swift */; };
+		44ADD0922C5B4666006417E4 /* InputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ADD0912C5B4666006417E4 /* InputViewModel.swift */; };
 		44BBB0042D00000100000001 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BBB0032D00000100000001 /* UserSession.swift */; };
 		44BBB0062D00000100000001 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BBB0052D00000100000001 /* User.swift */; };
 		44BBB00A2D00000200000001 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BBB0092D00000200000001 /* SignUpView.swift */; };
@@ -77,8 +77,8 @@
 /* Begin PBXFileReference section */
 		441F72602C5C79C90022CD68 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		441F72622C5C805D0022CD68 /* EachCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachCategoryView.swift; sourceTree = "<group>"; };
-		441F72662C5CCF6D0022CD68 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
-		441F72682C5CCF760022CD68 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
+		441F72662C5CCF6D0022CD68 /* InputSpendingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputSpendingView.swift; sourceTree = "<group>"; };
+		441F72682C5CCF760022CD68 /* InputIncomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputIncomeView.swift; sourceTree = "<group>"; };
 		441F726B2C5CE22C0022CD68 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		441F726D2C5CE64F0022CD68 /* DateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHolder.swift; sourceTree = "<group>"; };
 		441F726F2C5CE6E80022CD68 /* DateScrollerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateScrollerView.swift; sourceTree = "<group>"; };
@@ -89,7 +89,7 @@
 		441F727A2C6061910022CD68 /* Information.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Information.swift; sourceTree = "<group>"; };
 		441F727D2C6064880022CD68 /* InformationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationProvider.swift; sourceTree = "<group>"; };
 		441F72812C606A620022CD68 /* SpentGainedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpentGainedView.swift; sourceTree = "<group>"; };
-		441F72832C606F890022CD68 /* EditInOutputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditInOutputViewModel.swift; sourceTree = "<group>"; };
+		441F72832C606F890022CD68 /* EditInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditInputViewModel.swift; sourceTree = "<group>"; };
 		443699922EC5B9B00057E30F /* Financial_Management_v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Financial_Management_v2.xcdatamodel; sourceTree = "<group>"; };
 		44A367D82C6DDD79001E3329 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 		44A367DA2C6DE0B6001E3329 /* EachMonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachMonthView.swift; sourceTree = "<group>"; };
@@ -105,8 +105,8 @@
 		44ADD0722C5A7784006417E4 /* Financial_ManagementUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Financial_ManagementUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		44ADD0762C5A7784006417E4 /* Financial_ManagementUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Financial_ManagementUITests.swift; sourceTree = "<group>"; };
 		44ADD0782C5A7784006417E4 /* Financial_ManagementUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Financial_ManagementUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		44ADD08F2C5B4622006417E4 /* InOutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InOutputView.swift; sourceTree = "<group>"; };
-		44ADD0912C5B4666006417E4 /* InOutputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InOutputViewModel.swift; sourceTree = "<group>"; };
+		44ADD08F2C5B4622006417E4 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		44ADD0912C5B4666006417E4 /* InputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewModel.swift; sourceTree = "<group>"; };
 		44BBB0032D00000100000001 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		44BBB0052D00000100000001 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		44BBB0092D00000200000001 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
@@ -157,9 +157,9 @@
 		441F72642C5C86530022CD68 /* InOutput */ = {
 			isa = PBXGroup;
 			children = (
-				44ADD08F2C5B4622006417E4 /* InOutputView.swift */,
-				441F72662C5CCF6D0022CD68 /* InputView.swift */,
-				441F72682C5CCF760022CD68 /* OutputView.swift */,
+				44ADD08F2C5B4622006417E4 /* InputView.swift */,
+				441F72662C5CCF6D0022CD68 /* InputSpendingView.swift */,
+				441F72682C5CCF760022CD68 /* InputIncomeView.swift */,
 				441F72622C5C805D0022CD68 /* EachCategoryView.swift */,
 			);
 			path = InOutput;
@@ -330,8 +330,8 @@
 		44F0A1012C90AAA100000002 /* InOutput */ = {
 			isa = PBXGroup;
 			children = (
-				44ADD0912C5B4666006417E4 /* InOutputViewModel.swift */,
-				441F72832C606F890022CD68 /* EditInOutputViewModel.swift */,
+				44ADD0912C5B4666006417E4 /* InputViewModel.swift */,
+				441F72832C606F890022CD68 /* EditInputViewModel.swift */,
 			);
 			path = InOutput;
 			sourceTree = "<group>";
@@ -488,8 +488,8 @@
 				44BBB0042D00000100000001 /* UserSession.swift in Sources */,
 				44F0A1102C90ABB300000010 /* CalendarSummaryViewModel.swift in Sources */,
 				441F726E2C5CE64F0022CD68 /* DateHolder.swift in Sources */,
-				44ADD0902C5B4622006417E4 /* InOutputView.swift in Sources */,
-				441F72842C606F890022CD68 /* EditInOutputViewModel.swift in Sources */,
+				44ADD0902C5B4622006417E4 /* InputView.swift in Sources */,
+				441F72842C606F890022CD68 /* EditInputViewModel.swift in Sources */,
 				44C8295F2C80BAA1005B8992 /* MoreView.swift in Sources */,
 				44BBB00A2D00000200000001 /* SignUpView.swift in Sources */,
 				44BBB00C2D00000200000001 /* LogInView.swift in Sources */,
@@ -499,14 +499,14 @@
 				441F726C2C5CE22C0022CD68 /* CalendarView.swift in Sources */,
 				44F0A1112C90ABB300000011 /* CalendarCellViewModel.swift in Sources */,
 				44DC4A982C805E2F00F1F488 /* YearScrollerView.swift in Sources */,
-				441F72692C5CCF760022CD68 /* OutputView.swift in Sources */,
+				441F72692C5CCF760022CD68 /* InputIncomeView.swift in Sources */,
 				441F72792C5F35B50022CD68 /* SpentGaindListView.swift in Sources */,
 				441F72752C5DDA220022CD68 /* CalendarCell.swift in Sources */,
 				441F727E2C6064880022CD68 /* InformationProvider.swift in Sources */,
 				44DC4A962C80591F00F1F488 /* EachYearView.swift in Sources */,
 				441F72632C5C805D0022CD68 /* EachCategoryView.swift in Sources */,
 				44F0A1132C90ABB300000013 /* EachYearViewModel.swift in Sources */,
-				44ADD0922C5B4666006417E4 /* InOutputViewModel.swift in Sources */,
+				44ADD0922C5B4666006417E4 /* InputViewModel.swift in Sources */,
 				44A367D92C6DDD79001E3329 /* ReportView.swift in Sources */,
 				44ADD0592C5A7783006417E4 /* ContentView.swift in Sources */,
 				44BBB0062D00000100000001 /* User.swift in Sources */,
@@ -516,7 +516,7 @@
 				44F0A1122C90ABB300000012 /* EachMonthViewModel.swift in Sources */,
 				441F72732C5CEA0B0022CD68 /* CalendarHelper.swift in Sources */,
 				44ADD0632C5A7784006417E4 /* Financial_Management.xcdatamodeld in Sources */,
-				441F72672C5CCF6D0022CD68 /* InputView.swift in Sources */,
+				441F72672C5CCF6D0022CD68 /* InputSpendingView.swift in Sources */,
 				441F72612C5C79C90022CD68 /* Categories.swift in Sources */,
 				44A367DB2C6DE0B6001E3329 /* EachMonthView.swift in Sources */,
 				44ADD0572C5A7783006417E4 /* Financial_ManagementApp.swift in Sources */,

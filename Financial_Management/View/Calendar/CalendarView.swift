@@ -31,7 +31,7 @@ struct CalendarView: View {
             // Add here
         }
         .sheet(isPresented: $showInOutputSheet) {
-            InOutputView(initialDate: sheetDate)
+            InputView(initialDate: sheetDate)
         }
     }
     

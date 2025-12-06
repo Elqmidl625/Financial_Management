@@ -7,11 +7,12 @@
 
 import SwiftUI
 
-final class InOutputViewModel: ObservableObject{
+final class InputViewModel: ObservableObject{
     
     let columns: [GridItem] = [GridItem(.flexible()),
                                GridItem(.flexible()),
                                GridItem(.flexible())]
 }
+
 
 

@@ -63,7 +63,7 @@ final class AuthenticationTests: XCTestCase {
         UserSession.shared.saveAccount(email: email)
         
         // Create a couple of transactions for this user
-        let vm = EditInOutputViewModel(provider: .shared)
+        let vm = EditInputViewModel(provider: .shared)
         vm.information.name = "Food"
         vm.information.imageName = "food"
         vm.information.spentOrGained = true
