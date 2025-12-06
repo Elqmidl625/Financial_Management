@@ -24,12 +24,15 @@ struct CalendarCell: View {
                 .foregroundColor(textColor(type: monthStruct().monthType))
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             
-            Text(vm.totalForDay(information: information, date: dateHolder.date, day: monthStruct().dayInt, isSpent: false) != 0 ? "\(vm.totalForDay(information: information, date: dateHolder.date, day: monthStruct().dayInt, isSpent: false))": "")
+            let isCurrentMonth = monthStruct().monthType == MonthType.Current
+            let gained = isCurrentMonth ? vm.totalForDay(information: information, date: dateHolder.date, day: monthStruct().dayInt, isSpent: false) : 0
+            Text(gained != 0 ? "\(gained)" : "")
                 .font(.system(size: 10))
                 .padding(.bottom, 5)
                 .foregroundColor(.blue)
             
-            Text(vm.totalForDay(information: information, date: dateHolder.date, day: monthStruct().dayInt, isSpent: true) != 0 ? "\(vm.totalForDay(information: information, date: dateHolder.date, day: monthStruct().dayInt, isSpent: true))": "")
+            let spent = isCurrentMonth ? vm.totalForDay(information: information, date: dateHolder.date, day: monthStruct().dayInt, isSpent: true) : 0
+            Text(spent != 0 ? "\(spent)" : "")
                 .font(.system(size: 10))
                 .padding(.bottom, 5)
                 .foregroundColor(.red)

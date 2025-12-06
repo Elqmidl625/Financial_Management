@@ -15,7 +15,7 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
-            InOutputView()
+            InputView()
                 .tabItem {
                     Image(systemName: "square.and.pencil")
                     Text("Input")

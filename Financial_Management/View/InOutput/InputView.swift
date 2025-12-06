@@ -1,84 +1,91 @@
 //
-//  InputView.swift
+//  InOutputView.swift
 //  Financial_Management
 //
-//  Created by Lã Quốc Trung on 2/8/24.
+//  Created by Lã Quốc Trung on 1/8/24.
 //
 
 import SwiftUI
 
 struct InputView: View {
     
-    @ObservedObject var vm: EditInOutputViewModel
-    @Environment(\.dismiss) private var dismiss
-    
-    @StateObject var viewModel = InOutputViewModel()
-    @State public var Selected: Int = 0
-    @Binding var isSpentView: Bool
-    
-    @State private var showAlert = false
-    
+    @State var isSpentView = true
+    var initialDate: Date? = nil
+    var provider = InformationProvider.shared
     
     var body: some View {
-        List {
-            Section ("Information:") {
-                DatePicker("Day spent: ",
-                           selection: $vm.information.dateOfInfor,
-                           displayedComponents: [.date]) .datePickerStyle(.compact)
-                
-                TextField("Note: ",
-                          text: $vm.information.note,
-                          axis: .vertical)
-                .keyboardType(.namePhonePad)
-                
-                TextField("Money Spent: ", text: $vm.information.money) .keyboardType(.numberPad)
-            }
-            
-            Section ("Categories:") {
-                    LazyVGrid(columns: viewModel.columns, spacing: 10) {
-                        ForEach(MockData.categories){ category in
-                            EachCategoryView(categories: category,
-                                             Selected: $Selected)
-                            .onTapGesture {
-                                Selected = category.id.hashValue
-                                vm.information.name = category.name
-                                vm.information.imageName = category.imageName
-                                vm.information.spentOrGained = true
-                            }
+        GeometryReader { geometry in
+            VStack {
+                HStack (spacing: 15) {
+                    Button (action: {
+                        isSpentView = true
+                    }, label: {
+                        ZStack {
+                            Rectangle()
+                                .foregroundColor(.gray)
+                                .opacity(0.5)
+                                .cornerRadius(8)
+                                .overlay(
+                                    isSpentView ? RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color.blue, lineWidth: 2) : RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color.black, lineWidth: 0)
+                                )
+                            Text("Money spent")
+                                .foregroundColor(.white)
                         }
-                    }
-            }
-            .padding(.top)
-        }
-        
-        Button(action: {
-            do {
-                if vm.information.name == "" || vm.information.money == "" {
-                    showAlert = true
+                        .padding(.leading, 30)
+                    })
+                    
+                    Button (action: {
+                        isSpentView = false
+                    }, label: {
+                        ZStack {
+                            Rectangle()
+                                .foregroundColor(.gray)
+                                .opacity(0.5)
+                                .cornerRadius(8)
+                                .overlay(
+                                    isSpentView ? RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color.black, lineWidth: 0) : RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color.blue, lineWidth: 2)
+                                )
+                            Text("Money gained")
+                                .foregroundColor(.white)
+                        }
+                        .padding(.trailing, 30)
+                    })
                 }
-            
-                else {
-                    try vm.save()
-                    // Prepare a fresh draft so subsequent adds create new rows
-                    vm.startNewInformation(date: vm.information.dateOfInfor, spentOrGained: true)
-                    dismiss()
+                .frame(width: geometry.size.width,
+                       height: 35)
+                .padding(.vertical)
+                
+                if isSpentView {
+                    InputSpendingView(vm: {
+                        let vm = EditInputViewModel(provider: provider)
+                        if let date = initialDate {
+                            vm.information.dateOfInfor = date
+                        }
+                        return vm
+                    }(),
+                              isSpentView: $isSpentView)
+                    
+                } else {
+                    InputIncomeView(vm: {
+                        let vm = EditInputViewModel(provider: provider)
+                        if let date = initialDate {
+                            vm.information.dateOfInfor = date
+                        }
+                        return vm
+                    }(),
+                               isSpentView: $isSpentView)
                 }
                 
-            } catch {
-                print(error)
+                Spacer()
             }
-        }, label: {
-            Text("Add Transaction")
-        })
-        .alert(isPresented: $showAlert) {
-            Alert(title: Text("Lack of information!"),
-                  message: Text("Did you drop them or something?"),
-                  dismissButton: .default(Text("OK"))
-            )
         }
     }
 }
 
 #Preview {
-    InputView(vm: .init(provider: .shared), isSpentView: .constant(true))
+    InputView()
 }

@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-final class EditInOutputViewModel: ObservableObject {
+final class EditInputViewModel: ObservableObject {
     
     @Published var information: Information
     
@@ -39,5 +39,6 @@ final class EditInOutputViewModel: ObservableObject {
         self.information = newInfo
     }
 }
+
 
 

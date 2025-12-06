@@ -24,7 +24,7 @@ final class TransactionsCRUDTests: XCTestCase {
         let userId = session.currentUserId
         
         // Create
-        let vm = EditInOutputViewModel(provider: .shared)
+        let vm = EditInputViewModel(provider: .shared)
         vm.information.name = "Food"
         vm.information.imageName = "food"
         vm.information.spentOrGained = true
