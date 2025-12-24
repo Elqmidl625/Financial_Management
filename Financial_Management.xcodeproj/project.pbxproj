@@ -49,6 +49,7 @@
 		44D40CD02EDAFA2B0018B9E5 /* SecuritySessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D40CC82EDAFA2B0018B9E5 /* SecuritySessionTests.swift */; };
 		44D40CD12EDAFA2B0018B9E5 /* TransactionsCRUDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D40CCA2EDAFA2B0018B9E5 /* TransactionsCRUDTests.swift */; };
 		44D40CD32EDAFA370018B9E5 /* AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D40CD22EDAFA370018B9E5 /* AppUITests.swift */; };
+		44DC463C2EE6BAB0003C188B /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DC463B2EE6BAB0003C188B /* SwiftUIView.swift */; };
 		44DC4A962C80591F00F1F488 /* EachYearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DC4A952C80591F00F1F488 /* EachYearView.swift */; };
 		44DC4A982C805E2F00F1F488 /* YearScrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DC4A972C805E2F00F1F488 /* YearScrollerView.swift */; };
 		44F0A1102C90ABB300000010 /* CalendarSummaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F0A10C2C90ABB20000000C /* CalendarSummaryViewModel.swift */; };
@@ -121,6 +122,7 @@
 		44D40CC92EDAFA2B0018B9E5 /* TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
 		44D40CCA2EDAFA2B0018B9E5 /* TransactionsCRUDTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsCRUDTests.swift; sourceTree = "<group>"; };
 		44D40CD22EDAFA370018B9E5 /* AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUITests.swift; sourceTree = "<group>"; };
+		44DC463B2EE6BAB0003C188B /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		44DC4A952C80591F00F1F488 /* EachYearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachYearView.swift; sourceTree = "<group>"; };
 		44DC4A972C805E2F00F1F488 /* YearScrollerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearScrollerView.swift; sourceTree = "<group>"; };
 		44F0A10C2C90ABB20000000C /* CalendarSummaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSummaryViewModel.swift; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 				441F726A2C5CE2130022CD68 /* Calendar */,
 				44A367D72C6DDD38001E3329 /* Report */,
 				44C8295D2C80BA69005B8992 /* More */,
+				44DC463B2EE6BAB0003C188B /* SwiftUIView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -419,7 +422,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
-				LastUpgradeCheck = 1540;
+				LastUpgradeCheck = 1620;
 				TargetAttributes = {
 					44ADD0522C5A7783006417E4 = {
 						CreatedOnToolsVersion = 15.4;
@@ -487,6 +490,7 @@
 			files = (
 				44BBB0042D00000100000001 /* UserSession.swift in Sources */,
 				44F0A1102C90ABB300000010 /* CalendarSummaryViewModel.swift in Sources */,
+				44DC463C2EE6BAB0003C188B /* SwiftUIView.swift in Sources */,
 				441F726E2C5CE64F0022CD68 /* DateHolder.swift in Sources */,
 				44ADD0902C5B4622006417E4 /* InputView.swift in Sources */,
 				441F72842C606F890022CD68 /* EditInputViewModel.swift in Sources */,
@@ -744,7 +748,6 @@
 		44ADD0802C5A7784006417E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -764,7 +767,6 @@
 		44ADD0812C5A7784006417E4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -784,7 +786,6 @@
 		44ADD0832C5A7784006417E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 48RX743K82;
@@ -802,7 +803,6 @@
 		44ADD0842C5A7784006417E4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 48RX743K82;

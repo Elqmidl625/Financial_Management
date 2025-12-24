@@ -37,7 +37,7 @@ struct ContentView: View {
             
             MoreView()
                 .tabItem {
-                    Image(systemName: "ellipsis.circle")
+                    Image(systemName: "gearshape")
                     Text("More")
                 }
         }
