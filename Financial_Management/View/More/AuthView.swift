@@ -18,8 +18,10 @@ struct AuthView: View {
                     Text("Sign Up").tag(false)
                     Text("Log In").tag(true)
                 }
+                .controlSize(.large)
                 .pickerStyle(.segmented)
                 .padding(.horizontal)
+                .frame(width: 300)
                 
                 if showLogin {
                     LogInView()

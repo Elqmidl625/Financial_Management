@@ -15,47 +15,31 @@ struct ReportView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                HStack (spacing: 15) {
-                    Button (action: {
-                        isEachMonth = true
-                    }, label: {
-                        ZStack {
-                            Rectangle()
-                                .foregroundColor(.gray)
-                                .opacity(0.5)
-                                .cornerRadius(8)
-                                .overlay(
-                                    isEachMonth ? RoundedRectangle(cornerRadius: 10)
-                                        .stroke(Color.blue, lineWidth: 2) : RoundedRectangle(cornerRadius: 10)
-                                        .stroke(Color.black, lineWidth: 0)
-                                )
-                            Text("Each month")
-                                .foregroundColor(.white)
+                Group {
+                    if #available(iOS 26.0, *) {
+                        GlassEffectContainer {
+                            Picker("", selection: $isEachMonth) {
+                                Text("Each month").tag(true)
+                                Text("Each year").tag(false)
+                            }
+                            .pickerStyle(.segmented)
+                            .controlSize(.large)
+                            .font(.headline)
+                            .padding(.horizontal, 12)
+                            .frame(width: 300)
                         }
-                        .padding(.leading, 30)
-                    })
-                    
-                    Button (action: {
-                        isEachMonth = false
-                    }, label: {
-                        ZStack {
-                            Rectangle()
-                                .foregroundColor(.gray)
-                                .opacity(0.5)
-                                .cornerRadius(8)
-                                .overlay(
-                                    isEachMonth ? RoundedRectangle(cornerRadius: 10)
-                                        .stroke(Color.black, lineWidth: 0) : RoundedRectangle(cornerRadius: 10)
-                                        .stroke(Color.blue, lineWidth: 2)
-                                )
-                            Text("Each year")
-                                .foregroundColor(.white)
+                    } else {
+                        Picker("", selection: $isEachMonth) {
+                            Text("Each month").tag(true)
+                            Text("Each year").tag(false)
                         }
-                        .padding(.trailing, 30)
-                    })
+                        .pickerStyle(.segmented)
+                        .controlSize(.large)
+                        .font(.headline)
+                        .padding(.horizontal, 12)
+                    }
                 }
-                .frame(width: geometry.size.width,
-                       height: 35)
+                .frame(width: geometry.size.width, height: 64)
                 .padding(.vertical)
                 
                 if isEachMonth {
