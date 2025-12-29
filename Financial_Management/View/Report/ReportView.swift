@@ -13,11 +13,23 @@ struct ReportView: View {
     @EnvironmentObject var dateHolder: DateHolder
     
     var body: some View {
-        GeometryReader { geometry in
-            VStack {
-                Group {
-                    if #available(iOS 26.0, *) {
-                        GlassEffectContainer {
+        NavigationStack {
+            GeometryReader { geometry in
+                VStack {
+                    Group {
+                        if #available(iOS 26.0, *) {
+                            GlassEffectContainer {
+                                Picker("", selection: $isEachMonth) {
+                                    Text("Each month").tag(true)
+                                    Text("Each year").tag(false)
+                                }
+                                .pickerStyle(.segmented)
+                                .controlSize(.large)
+                                .font(.headline)
+                                .padding(.horizontal, 12)
+                                .frame(width: 300)
+                            }
+                        } else {
                             Picker("", selection: $isEachMonth) {
                                 Text("Each month").tag(true)
                                 Text("Each year").tag(false)
@@ -26,40 +38,29 @@ struct ReportView: View {
                             .controlSize(.large)
                             .font(.headline)
                             .padding(.horizontal, 12)
-                            .frame(width: 300)
                         }
-                    } else {
-                        Picker("", selection: $isEachMonth) {
-                            Text("Each month").tag(true)
-                            Text("Each year").tag(false)
-                        }
-                        .pickerStyle(.segmented)
-                        .controlSize(.large)
-                        .font(.headline)
-                        .padding(.horizontal, 12)
                     }
+                    .frame(width: geometry.size.width, height: 64)
+                    .padding(.vertical)
+                    
+                    if isEachMonth {
+                        EachMonthView()
+                            .environmentObject(dateHolder)
+                    } else {
+                        EachYearView()
+                            .environmentObject(dateHolder)
+                    }
+                    
+                    Spacer()
                 }
-                .frame(width: geometry.size.width, height: 64)
-                .padding(.vertical)
-                
-                if isEachMonth {
-                    EachMonthView()
-                        .environmentObject(dateHolder)
-                } else {
-                    EachYearView()
-                        .environmentObject(dateHolder)
-                }
-                
-                Spacer()
             }
+            .navigationTitle("Report")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
 
-struct ReportView_Previews: PreviewProvider {
-    static var previews: some View{
-        let dateHolder = DateHolder()
-        ReportView()
-            .environmentObject(dateHolder)
-    }
+#Preview {
+    ReportView()
+        .environmentObject(DateHolder())
 }
