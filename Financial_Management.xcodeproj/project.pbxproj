@@ -22,6 +22,8 @@
 		441F727E2C6064880022CD68 /* InformationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441F727D2C6064880022CD68 /* InformationProvider.swift */; };
 		441F72822C606A620022CD68 /* SpentGainedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441F72812C606A620022CD68 /* SpentGainedView.swift */; };
 		441F72842C606F890022CD68 /* EditInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441F72832C606F890022CD68 /* EditInputViewModel.swift */; };
+		447D0A692EFC4CA4003F33A5 /* CategoryBarChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447D0A682EFC4CA4003F33A5 /* CategoryBarChartViewModel.swift */; };
+		447D0A6B2EFC4CB5003F33A5 /* CategoryBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447D0A6A2EFC4CB5003F33A5 /* CategoryBarChartView.swift */; };
 		44A367D92C6DDD79001E3329 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A367D82C6DDD79001E3329 /* ReportView.swift */; };
 		44A367DB2C6DE0B6001E3329 /* EachMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A367DA2C6DE0B6001E3329 /* EachMonthView.swift */; };
 		44A367DD2C709CEF001E3329 /* EachElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A367DC2C709CEF001E3329 /* EachElementView.swift */; };
@@ -92,6 +94,8 @@
 		441F72812C606A620022CD68 /* SpentGainedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpentGainedView.swift; sourceTree = "<group>"; };
 		441F72832C606F890022CD68 /* EditInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditInputViewModel.swift; sourceTree = "<group>"; };
 		443699922EC5B9B00057E30F /* Financial_Management_v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Financial_Management_v2.xcdatamodel; sourceTree = "<group>"; };
+		447D0A682EFC4CA4003F33A5 /* CategoryBarChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryBarChartViewModel.swift; sourceTree = "<group>"; };
+		447D0A6A2EFC4CB5003F33A5 /* CategoryBarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryBarChartView.swift; sourceTree = "<group>"; };
 		44A367D82C6DDD79001E3329 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 		44A367DA2C6DE0B6001E3329 /* EachMonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachMonthView.swift; sourceTree = "<group>"; };
 		44A367DC2C709CEF001E3329 /* EachElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachElementView.swift; sourceTree = "<group>"; };
@@ -208,6 +212,7 @@
 		44A367D72C6DDD38001E3329 /* Report */ = {
 			isa = PBXGroup;
 			children = (
+				447D0A6A2EFC4CB5003F33A5 /* CategoryBarChartView.swift */,
 				44A367D82C6DDD79001E3329 /* ReportView.swift */,
 				44A367DA2C6DE0B6001E3329 /* EachMonthView.swift */,
 				44DC4A952C80591F00F1F488 /* EachYearView.swift */,
@@ -352,6 +357,7 @@
 		44F0A1032C90ABB100000004 /* Report */ = {
 			isa = PBXGroup;
 			children = (
+				447D0A682EFC4CA4003F33A5 /* CategoryBarChartViewModel.swift */,
 				44F0A10E2C90ABB20000000E /* EachMonthViewModel.swift */,
 				44F0A10F2C90ABB30000000F /* EachYearViewModel.swift */,
 			);
@@ -496,6 +502,7 @@
 				441F72842C606F890022CD68 /* EditInputViewModel.swift in Sources */,
 				44C8295F2C80BAA1005B8992 /* MoreView.swift in Sources */,
 				44BBB00A2D00000200000001 /* SignUpView.swift in Sources */,
+				447D0A692EFC4CA4003F33A5 /* CategoryBarChartViewModel.swift in Sources */,
 				44BBB00C2D00000200000001 /* LogInView.swift in Sources */,
 				44BBB00E2D00000300000001 /* AuthView.swift in Sources */,
 				44A367DD2C709CEF001E3329 /* EachElementView.swift in Sources */,
@@ -522,6 +529,7 @@
 				44ADD0632C5A7784006417E4 /* Financial_Management.xcdatamodeld in Sources */,
 				441F72672C5CCF6D0022CD68 /* InputSpendingView.swift in Sources */,
 				441F72612C5C79C90022CD68 /* Categories.swift in Sources */,
+				447D0A6B2EFC4CB5003F33A5 /* CategoryBarChartView.swift in Sources */,
 				44A367DB2C6DE0B6001E3329 /* EachMonthView.swift in Sources */,
 				44ADD0572C5A7783006417E4 /* Financial_ManagementApp.swift in Sources */,
 			);

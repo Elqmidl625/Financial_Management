@@ -152,9 +152,18 @@ struct EachYearView: View {
                     let totalMoney = calculateTotalMoney(for: category, isSpent: isSpent)
                     let percent = calculatePercent(for: category, isSpent: isSpent)
                     if totalMoney > 0 {
-                        EachElementView(categories: category,
-                                        money: totalMoney,
-                                        percent: percent)
+                        NavigationLink {
+                            CategoryBarChartView(
+                                category: category,
+                                isSpent: isSpent,
+                                isMonthlyMode: false
+                            )
+                            .environmentObject(dateHolder)
+                        } label: {
+                            EachElementView(categories: category,
+                                            money: totalMoney,
+                                            percent: percent)
+                        }
                     }
                 }
             }
