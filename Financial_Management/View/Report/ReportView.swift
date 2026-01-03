@@ -14,22 +14,14 @@ struct ReportView: View {
     
     var body: some View {
         NavigationStack {
-            GeometryReader { geometry in
-                VStack {
-                    Group {
-                        if #available(iOS 26.0, *) {
-                            GlassEffectContainer {
-                                Picker("", selection: $isEachMonth) {
-                                    Text("Each month").tag(true)
-                                    Text("Each year").tag(false)
-                                }
-                                .pickerStyle(.segmented)
-                                .controlSize(.large)
-                                .font(.headline)
-                                .padding(.horizontal, 12)
-                                .frame(width: 300)
-                            }
-                        } else {
+            VStack {
+                Text("Report")
+                    .font(.system(size: 24))
+                    .fontWeight(.bold)
+                
+                Group {
+                    if #available(iOS 26.0, *) {
+                        GlassEffectContainer {
                             Picker("", selection: $isEachMonth) {
                                 Text("Each month").tag(true)
                                 Text("Each year").tag(false)
@@ -38,25 +30,34 @@ struct ReportView: View {
                             .controlSize(.large)
                             .font(.headline)
                             .padding(.horizontal, 12)
+                            .frame(width: 300)
                         }
-                    }
-                    .frame(width: geometry.size.width, height: 64)
-                    .padding(.vertical)
-                    
-                    if isEachMonth {
-                        EachMonthView()
-                            .environmentObject(dateHolder)
                     } else {
-                        EachYearView()
-                            .environmentObject(dateHolder)
+                        Picker("", selection: $isEachMonth) {
+                            Text("Each month").tag(true)
+                            Text("Each year").tag(false)
+                        }
+                        .pickerStyle(.segmented)
+                        .controlSize(.large)
+                        .font(.headline)
+                        .padding(.horizontal, 12)
                     }
-                    
-                    Spacer()
                 }
+                .frame(height: 15)
+                .padding(.vertical)
+                
+                if isEachMonth {
+                    EachMonthView()
+                        .environmentObject(dateHolder)
+                } else {
+                    EachYearView()
+                        .environmentObject(dateHolder)
+                }
+                
+                Spacer()
             }
-            .navigationTitle("Report")
-            .navigationBarTitleDisplayMode(.inline)
         }
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

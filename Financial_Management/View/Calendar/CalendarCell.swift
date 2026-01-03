@@ -40,7 +40,7 @@ struct CalendarCell: View {
     }
     
     func textColor(type: MonthType) -> Color {
-        return type == MonthType.Current ? Color.white : Color.gray
+        return type == MonthType.Current ? Color.primary : Color.gray
     }
     
     func monthStruct() -> MonthStruct {

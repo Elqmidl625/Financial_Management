@@ -58,7 +58,7 @@ struct CategoryBarChartView: View {
                     .font(.title2)
                     .fontWeight(.bold)
                 
-                Text(isSpent ? "Spending Analysis" : "Income Analysis")
+                Text(isSpent ? "Expense Analysis" : "Income Analysis")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
             }
@@ -71,8 +71,8 @@ struct CategoryBarChartView: View {
                 .fontWeight(.semibold)
                 .padding(.horizontal, 12)
                 .padding(.vertical, 6)
-                .background(isSpent ? Color.red.opacity(0.2) : Color.green.opacity(0.2))
-                .foregroundColor(isSpent ? .red : .green)
+                .background(isSpent ? Color.red.opacity(0.2) : Color.blue.opacity(0.2))
+                .foregroundColor(isSpent ? .red : .blue)
                 .clipShape(Capsule())
         }
         .padding()
@@ -86,7 +86,7 @@ struct CategoryBarChartView: View {
             StatCard(
                 title: "Total",
                 value: "\(vm.totalAmount)$",
-                color: isSpent ? .red : .green
+                color: isSpent ? .red : .blue
             )
             
             StatCard(
@@ -134,7 +134,7 @@ struct CategoryBarChartView: View {
             )
             .foregroundStyle(
                 LinearGradient(
-                    colors: isSpent ? [.red.opacity(0.7), .red] : [.green.opacity(0.7), .green],
+                    colors: isSpent ? [.red.opacity(0.7), .red] : [.blue.opacity(0.7), .blue],
                     startPoint: .bottom,
                     endPoint: .top
                 )
@@ -217,7 +217,7 @@ struct CategoryBarChartView: View {
                                 .clipShape(Capsule())
                             
                             Rectangle()
-                                .fill(isSpent ? Color.red : Color.green)
+                                .fill(isSpent ? Color.red : Color.blue)
                                 .frame(width: max(0, width), height: 8)
                                 .clipShape(Capsule())
                         }

@@ -46,8 +46,8 @@ struct SpentGaindListView: View {
                 let sum = vm.totalGained - vm.totalSpent
                 
                 HStack (spacing: 0) {
-                    SumbarView(content: "Gained", number: vm.totalGained, color: .blue)
-                    SumbarView(content: "Spent", number: vm.totalSpent, color: .red)
+                    SumbarView(content: "Income", number: vm.totalGained, color: .blue)
+                    SumbarView(content: "Expense", number: vm.totalSpent, color: .red)
                     SumbarView(content: "Sum", number: sum, color: (sum >= 0 ? .blue : .red))
                 }
                 .frame(maxWidth: .infinity)

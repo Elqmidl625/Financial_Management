@@ -54,19 +54,19 @@ struct EachYearView: View {
                 }, label: {
                     if isSpentView {
                         VStack(spacing: 0) {
-                            Text("Spent")
+                            Text("Expense")
                                 .font(.title2)
                                 .fontWeight(.bold)
-                                .foregroundColor(.blue)
+                                .foregroundColor(.red)
                             
                             Rectangle()
                                 .frame(height: 3)
                                 .cornerRadius(10)
-                                .foregroundColor(.blue)
+                                .foregroundColor(.red)
                         }
                     } else {
                         VStack(spacing: 0) {
-                            Text("Spent")
+                            Text("Expense")
                                 .font(.title2)
                                 .foregroundColor(.gray)
                             
@@ -83,7 +83,7 @@ struct EachYearView: View {
                 }, label: {
                     if isSpentView == false {
                         VStack(spacing: 0) {
-                            Text("Gained")
+                            Text("Income")
                                 .font(.title2)
                                 .fontWeight(.bold)
                                 .foregroundColor(.blue)
@@ -95,7 +95,7 @@ struct EachYearView: View {
                         }
                     } else {
                         VStack(spacing: 0) {
-                            Text("Gained")
+                            Text("Income")
                                 .font(.title2)
                                 .foregroundColor(.gray)
                             

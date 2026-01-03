@@ -48,8 +48,8 @@ struct EachMonthView: View {
                 .environmentObject(dateHolder)
             
             HStack {
-                threeRectangle(text: "Spent:", number: vm.spent, color: .red)
-                threeRectangle(text: "Gained:", number: vm.gained, color: .blue)
+                threeRectangle(text: "Expense:", number: vm.spent, color: .red)
+                threeRectangle(text: "Income:", number: vm.gained, color: .blue)
             }
             .padding(.horizontal, 5)
             
@@ -63,19 +63,19 @@ struct EachMonthView: View {
                 }, label: {
                     if isSpentView {
                         VStack(spacing: 0) {
-                            Text("Spent")
+                            Text("Expense")
                                 .font(.title2)
                                 .fontWeight(.bold)
-                                .foregroundColor(.blue)
+                                .foregroundColor(.red)
                             
                             Rectangle()
                                 .frame(height: 3)
                                 .cornerRadius(10)
-                                .foregroundColor(.blue)
+                                .foregroundColor(.red)
                         }
                     } else {
                         VStack(spacing: 0) {
-                            Text("Spent")
+                            Text("Expense")
                                 .font(.title2)
                                 .foregroundColor(.gray)
                             
@@ -92,7 +92,7 @@ struct EachMonthView: View {
                 }, label: {
                     if isSpentView == false {
                         VStack(spacing: 0) {
-                            Text("Gained")
+                            Text("Income")
                                 .font(.title2)
                                 .fontWeight(.bold)
                                 .foregroundColor(.blue)
@@ -104,7 +104,7 @@ struct EachMonthView: View {
                         }
                     } else {
                         VStack(spacing: 0) {
-                            Text("Gained")
+                            Text("Income")
                                 .font(.title2)
                                 .foregroundColor(.gray)
                             
@@ -201,5 +201,5 @@ struct EachMonthView_Previews: PreviewProvider {
 }
 
 #Preview {
-    threeRectangle(text: "Spent:", number: 500000, color: .red)
+    threeRectangle(text: "Expense:", number: 500000, color: .red)
 }

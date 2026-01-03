@@ -22,7 +22,7 @@ struct InputSpendingView: View {
     var body: some View {
         List {
             Section ("Information:") {
-                DatePicker("Day spent: ",
+                DatePicker("Date: ",
                            selection: $vm.information.dateOfInfor,
                            displayedComponents: [.date]) .datePickerStyle(.compact)
                 
@@ -31,7 +31,7 @@ struct InputSpendingView: View {
                           axis: .vertical)
                 .keyboardType(.namePhonePad)
                 
-                TextField("Money Spent: ", text: $vm.information.money) .keyboardType(.numberPad)
+                TextField("Amount: ", text: $vm.information.money) .keyboardType(.numberPad)
             }
             
             Section ("Categories:") {

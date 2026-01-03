@@ -17,8 +17,8 @@ struct InputView: View {
         VStack {
             ZStack {
                 Picker("", selection: $isSpentView) {
-                    Text("Spent").tag(true)
-                    Text("Gained").tag(false)
+                    Text("Expense").tag(true)
+                    Text("Income").tag(false)
                 }
                 .pickerStyle(.segmented)
                 .controlSize(.large)
