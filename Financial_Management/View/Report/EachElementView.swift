@@ -15,8 +15,9 @@ struct EachElementView: View {
     
     var body: some View {
         HStack(spacing: 10) {
-            Image(categories.imageName)
-                .resizable()
+            Image(systemName: categories.systemSymbolName)
+                .font(.system(size: 25))
+                .foregroundColor(categories.symbolColor)
                 .frame(width: 30, height: 30)
             
             Text(categories.name)

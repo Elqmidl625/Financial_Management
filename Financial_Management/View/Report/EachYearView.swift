@@ -178,7 +178,7 @@ struct EachYearView: View {
                     SectorMark(angle: .value("Amount", amount),
                                innerRadius: .ratio(0.5),
                                angularInset: 1)
-                    .foregroundStyle(by: .value("Name", category.name))
+                    .foregroundStyle(category.symbolColor)
                     .cornerRadius(5)
                 }
             }

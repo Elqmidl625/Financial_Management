@@ -17,10 +17,10 @@ struct SpentGainedView: View {
         
         
         HStack (spacing: 10) {
-            Image(information.imageName)
-                .resizable()
-                .frame(width: 30,
-                       height: 30)
+            Image(systemName: CategorySymbols.systemName(for: information.name))
+                .font(.system(size: 25))
+                .foregroundColor(CategorySymbols.color(for: information.name))
+                .frame(width: 30, height: 30)
             
             Text(information.name)
                 .font(.system(size: 15))
