@@ -13,6 +13,7 @@ struct threeRectangle: View {
     var text: String
     var number: Int
     var color: Color
+    @ObservedObject private var currencyManager = CurrencyManager.shared
     
     var body: some View {
         HStack {
@@ -20,7 +21,7 @@ struct threeRectangle: View {
             
             Spacer()
             
-            Text("\(number)$")
+            Text(currencyManager.formatAmount(number))
                 .fontWeight(.bold)
                 .foregroundColor(color)
         }

@@ -12,6 +12,7 @@ struct SpentGainedView: View {
 //    @Environment(\.managedObjectContext) private var moc
     
     @ObservedObject var information: Information    // spent = true; gained = false
+    @ObservedObject private var currencyManager = CurrencyManager.shared
     
     var body: some View {
         
@@ -32,7 +33,7 @@ struct SpentGainedView: View {
             Spacer()
             
             let monInt = Int(information.money) ?? 0
-            Text("\(monInt)$")
+            Text(currencyManager.formatAmount(monInt))
                 .fontWeight(.bold)
                 .foregroundColor(information.spentOrGained ? .red : .blue)
         }

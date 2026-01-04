@@ -31,7 +31,8 @@ struct InputIncomeView: View {
                           axis: .vertical)
                 .keyboardType(.namePhonePad)
                 
-                TextField("Amount: ", text: $vm.information.money) .keyboardType(.numberPad)
+                FormattedNumberTextField(text: $vm.information.money, placeholder: "Amount: ")
+                    .id(vm.information.objectID)
             }
             
             Section ("Categories:") {

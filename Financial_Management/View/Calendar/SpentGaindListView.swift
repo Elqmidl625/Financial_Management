@@ -12,6 +12,7 @@ struct SumbarView: View {
     var content: String
     var number: Int
     var color: Color
+    @ObservedObject private var currencyManager = CurrencyManager.shared
     
     var body: some View {
         VStack {
@@ -19,7 +20,7 @@ struct SumbarView: View {
                 .font(.system(size: 14))
                 .fontWeight(.bold)
             
-            Text("\(number)$")
+            Text(currencyManager.formatAmount(number))
                 .fontWeight(.bold)
                 .foregroundColor(color)
                 .lineLimit(1)
