@@ -48,9 +48,11 @@ struct CategoryBarChartView: View {
     // MARK: - Category Header
     private var categoryHeader: some View {
         HStack(spacing: 15) {
-            Image(category.imageName)
-                .resizable()
+            Image(systemName: category.systemSymbolName)
+                .font(.system(size: 40))
+                .foregroundColor(category.symbolColor)
                 .frame(width: 50, height: 50)
+                .background(category.symbolColor.opacity(0.1))
                 .clipShape(RoundedRectangle(cornerRadius: 10))
             
             VStack(alignment: .leading, spacing: 4) {

@@ -32,7 +32,7 @@ final class FilteringTests: XCTestCase {
         try makeInformation(userEmail: "u1@example.com", name: "Coffee", money: "5", spent: true, date: .now)
         
         // Create 1 row for u2
-        try makeInformation(userEmail: "u2@example.com", name: "Sallary", money: "100", spent: false, date: .now)
+        try makeInformation(userEmail: "u2@example.com", name: "Salary", money: "100", spent: false, date: .now)
         
         waitForCoreDataPropagation()
         
@@ -46,7 +46,7 @@ final class FilteringTests: XCTestCase {
         fetch = Information.allForUser(userId: u2Id)
         results = try ctx.fetch(fetch)
         XCTAssertEqual(results.count, 1)
-        XCTAssertEqual(results.first?.name, "Sallary")
+        XCTAssertEqual(results.first?.name, "Salary")
     }
     
     func testFetchAllForCurrentUserIncludesNilAndEmptyForDefault() throws {

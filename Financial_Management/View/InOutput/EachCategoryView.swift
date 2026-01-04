@@ -43,11 +43,20 @@ struct ButtonCustom: View {
     public var name: String
     @State var textColor: Bool
     
+    // Get symbol info for the category
+    private var symbolName: String {
+        CategorySymbols.systemName(for: name)
+    }
+    
+    private var symbolColor: Color {
+        CategorySymbols.color(for: name)
+    }
+    
     var body: some View {
         VStack (spacing: 10) {
-            Image(imageName)
-                .resizable()
-                .frame(width: 30, height: 30)
+            Image(systemName: symbolName)
+                .font(.system(size: 30))
+                .foregroundColor(symbolColor)
             
             Text(name)
                 .font(.system(size: 13))

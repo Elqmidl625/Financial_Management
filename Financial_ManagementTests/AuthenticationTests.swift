@@ -71,8 +71,8 @@ final class AuthenticationTests: XCTestCase {
         try vm.save()
         
         vm.startNewInformation(spentOrGained: false)
-        vm.information.name = "Sallary"
-        vm.information.imageName = "sallary"
+        vm.information.name = "Salary"
+        vm.information.imageName = "salary"
         vm.information.money = "500"
         try vm.save()
         

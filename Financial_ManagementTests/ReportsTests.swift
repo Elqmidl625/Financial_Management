@@ -28,7 +28,7 @@ final class ReportsTests: XCTestCase {
         // Seed this month: spent 30 (10 + 20), gained 100
         try makeInfo(name: "Food", money: "10", spent: true, date: thisMonth)
         try makeInfo(name: "Coffee", money: "20", spent: true, date: thisMonth)
-        try makeInfo(name: "Sallary", money: "100", spent: false, date: thisMonth)
+        try makeInfo(name: "Salary", money: "100", spent: false, date: thisMonth)
         
         // Seed last month: spent 5, gained 7 (should be ignored)
         try makeInfo(name: "Food", money: "5", spent: true, date: lastMonth)
