@@ -108,6 +108,18 @@ struct MoreView: View {
                             }
                         }
                         
+                        NavigationLink {
+                            CurrencySelectionView()
+                        } label: {
+                            HStack {
+                                Image(systemName: "dollarsign.circle")
+                                Text("Currency")
+                                Spacer()
+                                Text(CurrencyManager.shared.currencySymbol)
+                                    .foregroundColor(.secondary)
+                            }
+                        }
+                        
                         HStack {
                             Image(systemName: "gearshape")
                             Text("Basic setting")

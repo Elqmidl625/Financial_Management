@@ -12,6 +12,7 @@ struct EachElementView: View {
     let categories: Categories
     var money: Int
     var percent: Int
+    @ObservedObject private var currencyManager = CurrencyManager.shared
     
     var body: some View {
         HStack(spacing: 10) {
@@ -26,7 +27,7 @@ struct EachElementView: View {
             
             Spacer()
             
-            Text("\(money)$")
+            Text(currencyManager.formatAmount(money))
                 .fontWeight(.bold)
             
             Text("\(percent)%")

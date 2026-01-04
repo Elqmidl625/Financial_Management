@@ -13,6 +13,7 @@ struct sumView: View {
     
     var text: String
     var number: Int
+    @ObservedObject private var currencyManager = CurrencyManager.shared
     
     var body: some View {
         HStack {
@@ -21,7 +22,7 @@ struct sumView: View {
             
             Spacer()
             
-            Text("\(number)$")
+            Text(currencyManager.formatAmount(number))
                 .fontWeight(.bold)
         }
         .frame(height: 50)

@@ -17,6 +17,7 @@ struct CategoryBarChartView: View {
     @StateObject private var vm = CategoryBarChartViewModel()
     @EnvironmentObject var dateHolder: DateHolder
     @FetchRequest(fetchRequest: Information.allForCurrentUser()) private var information
+    @ObservedObject private var currencyManager = CurrencyManager.shared
     
     var body: some View {
         ScrollView {
@@ -87,19 +88,19 @@ struct CategoryBarChartView: View {
         HStack(spacing: 15) {
             StatCard(
                 title: "Total",
-                value: "\(vm.totalAmount)$",
+                value: currencyManager.formatAmount(vm.totalAmount),
                 color: isSpent ? .red : .blue
             )
             
             StatCard(
                 title: "Average",
-                value: "\(vm.averageAmount)$",
+                value: currencyManager.formatAmount(vm.averageAmount),
                 color: .blue
             )
             
             StatCard(
                 title: "Peak",
-                value: "\(vm.maxAmount)$",
+                value: currencyManager.formatAmount(vm.maxAmount),
                 color: .orange
             )
         }
@@ -155,7 +156,7 @@ struct CategoryBarChartView: View {
                 AxisGridLine()
                 AxisValueLabel {
                     if let intValue = value.as(Int.self) {
-                        Text("\(intValue)$")
+                        Text(currencyManager.formatAmount(intValue))
                             .font(.caption)
                     }
                 }
@@ -226,7 +227,7 @@ struct CategoryBarChartView: View {
                     }
                     .frame(width: 100, height: 8)
                     
-                    Text("\(item.amount)$")
+                    Text(currencyManager.formatAmount(item.amount))
                         .font(.subheadline)
                         .fontWeight(.semibold)
                         .frame(width: 80, alignment: .trailing)

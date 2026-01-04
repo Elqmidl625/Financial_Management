@@ -56,6 +56,9 @@
 		44DC4A982C805E2F00F1F488 /* YearScrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DC4A972C805E2F00F1F488 /* YearScrollerView.swift */; };
 		44E82DC32F0AB37500A1C1E4 /* CustomCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E82DC22F0AB37500A1C1E4 /* CustomCategory.swift */; };
 		44E82DC52F0AB39300A1C1E4 /* CustomCategoryManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E82DC42F0AB39300A1C1E4 /* CustomCategoryManagerView.swift */; };
+		44E82DC72F0AB8E700A1C1E4 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E82DC62F0AB8E700A1C1E4 /* Currency.swift */; };
+		44E82DC92F0AB90D00A1C1E4 /* CurrencySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E82DC82F0AB90D00A1C1E4 /* CurrencySelectionView.swift */; };
+		44E82DCB2F0ABC5500A1C1E4 /* FormattedNumberTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E82DCA2F0ABC5500A1C1E4 /* FormattedNumberTextField.swift */; };
 		44F0A1102C90ABB300000010 /* CalendarSummaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F0A10C2C90ABB20000000C /* CalendarSummaryViewModel.swift */; };
 		44F0A1112C90ABB300000011 /* CalendarCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F0A10D2C90ABB20000000D /* CalendarCellViewModel.swift */; };
 		44F0A1122C90ABB300000012 /* EachMonthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F0A10E2C90ABB20000000E /* EachMonthViewModel.swift */; };
@@ -133,6 +136,9 @@
 		44DC4A972C805E2F00F1F488 /* YearScrollerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearScrollerView.swift; sourceTree = "<group>"; };
 		44E82DC22F0AB37500A1C1E4 /* CustomCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCategory.swift; sourceTree = "<group>"; };
 		44E82DC42F0AB39300A1C1E4 /* CustomCategoryManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCategoryManagerView.swift; sourceTree = "<group>"; };
+		44E82DC62F0AB8E700A1C1E4 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		44E82DC82F0AB90D00A1C1E4 /* CurrencySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencySelectionView.swift; sourceTree = "<group>"; };
+		44E82DCA2F0ABC5500A1C1E4 /* FormattedNumberTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattedNumberTextField.swift; sourceTree = "<group>"; };
 		44F0A10C2C90ABB20000000C /* CalendarSummaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSummaryViewModel.swift; sourceTree = "<group>"; };
 		44F0A10D2C90ABB20000000D /* CalendarCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCellViewModel.swift; sourceTree = "<group>"; };
 		44F0A10E2C90ABB20000000E /* EachMonthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachMonthViewModel.swift; sourceTree = "<group>"; };
@@ -167,6 +173,7 @@
 		441F72642C5C86530022CD68 /* InOutput */ = {
 			isa = PBXGroup;
 			children = (
+				44E82DCA2F0ABC5500A1C1E4 /* FormattedNumberTextField.swift */,
 				44ADD08F2C5B4622006417E4 /* InputView.swift */,
 				441F72662C5CCF6D0022CD68 /* InputSpendingView.swift */,
 				441F72682C5CCF760022CD68 /* InputIncomeView.swift */,
@@ -311,6 +318,7 @@
 		44ADD08A2C5B2E07006417E4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				44E82DC62F0AB8E700A1C1E4 /* Currency.swift */,
 				441F727A2C6061910022CD68 /* Information.swift */,
 				44BBB0052D00000100000001 /* User.swift */,
 				441F72652C5C86670022CD68 /* InOutput */,
@@ -322,6 +330,7 @@
 		44C8295D2C80BA69005B8992 /* More */ = {
 			isa = PBXGroup;
 			children = (
+				44E82DC82F0AB90D00A1C1E4 /* CurrencySelectionView.swift */,
 				44E82DC42F0AB39300A1C1E4 /* CustomCategoryManagerView.swift */,
 				44C8295E2C80BAA1005B8992 /* MoreView.swift */,
 				44BBB0092D00000200000001 /* SignUpView.swift */,
@@ -512,6 +521,8 @@
 				44BBB00C2D00000200000001 /* LogInView.swift in Sources */,
 				44BBB00E2D00000300000001 /* AuthView.swift in Sources */,
 				44A367DD2C709CEF001E3329 /* EachElementView.swift in Sources */,
+				44E82DC72F0AB8E700A1C1E4 /* Currency.swift in Sources */,
+				44E82DCB2F0ABC5500A1C1E4 /* FormattedNumberTextField.swift in Sources */,
 				441F72702C5CE6E80022CD68 /* DateScrollerView.swift in Sources */,
 				441F726C2C5CE22C0022CD68 /* CalendarView.swift in Sources */,
 				44F0A1112C90ABB300000011 /* CalendarCellViewModel.swift in Sources */,
@@ -527,6 +538,7 @@
 				44A367D92C6DDD79001E3329 /* ReportView.swift in Sources */,
 				44ADD0592C5A7783006417E4 /* ContentView.swift in Sources */,
 				44BBB0062D00000100000001 /* User.swift in Sources */,
+				44E82DC92F0AB90D00A1C1E4 /* CurrencySelectionView.swift in Sources */,
 				44E82DC32F0AB37500A1C1E4 /* CustomCategory.swift in Sources */,
 				441F727B2C6061910022CD68 /* Information.swift in Sources */,
 				441F72772C5DDC7D0022CD68 /* MonthStruct.swift in Sources */,
