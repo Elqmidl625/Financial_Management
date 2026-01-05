@@ -24,6 +24,7 @@ struct SumbarView: View {
                 .fontWeight(.bold)
                 .foregroundColor(color)
                 .lineLimit(1)
+                .minimumScaleFactor(0.7)
         }
         .frame(width: 130)
     }

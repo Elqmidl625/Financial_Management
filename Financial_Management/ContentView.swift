@@ -17,7 +17,7 @@ struct ContentView: View {
         TabView {
             InputView()
                 .tabItem {
-                    Image(systemName: "square.and.pencil")
+                    Image(systemName: "note.text")
                     Text("Input")
                 }
             

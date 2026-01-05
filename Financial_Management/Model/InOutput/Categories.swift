@@ -102,43 +102,43 @@ struct MockData {
     
     static var categories: [Categories] {
         let defaultCategories = [
-            Categories(name: "Food",
-                      imageName: "food"),
-            
-            Categories(name: "Shopping",
-                      imageName: "shopping"),
-            
-            Categories(name: "Clothes",
-                      imageName: "clothes"),
-            
-            Categories(name: "Coffee",
-                      imageName: "coffee"),
-            
-            Categories(name: "Medicine",
-                      imageName: "medicine"),
-
-            Categories(name: "Education",
-                      imageName: "education"),
-            
-            Categories(name: "Sport",
-                      imageName: "sport"),
-            
-            Categories(name: "Travel",
-                      imageName: "travel"),
-            
-            Categories(name: "Contact fee",
-                      imageName: "contact_fee"),
-            
-            Categories(name: "House",
-                      imageName: "house"),
-            
-            Categories(name: "Gift",
-                      imageName: "gift"),
-            
-            Categories(name: "Trash",
-                      imageName: "trash"),
-        ]
+        Categories(name: "Food",
+                  imageName: "food"),
         
+        Categories(name: "Shopping",
+                  imageName: "shopping"),
+        
+        Categories(name: "Clothes",
+                  imageName: "clothes"),
+        
+        Categories(name: "Coffee",
+                  imageName: "coffee"),
+        
+        Categories(name: "Medicine",
+                  imageName: "medicine"),
+
+        Categories(name: "Education",
+                  imageName: "education"),
+        
+        Categories(name: "Sport",
+                  imageName: "sport"),
+        
+        Categories(name: "Travel",
+                  imageName: "travel"),
+        
+        Categories(name: "Contact fee",
+                  imageName: "contact_fee"),
+        
+        Categories(name: "House",
+                  imageName: "house"),
+        
+        Categories(name: "Gift",
+                  imageName: "gift"),
+        
+        Categories(name: "Trash",
+                  imageName: "trash"),
+    ]
+    
         // Add custom expense categories
         let customExpenseCategories = CustomCategoryManager.shared.customCategoriesForType(isIncome: false).map { custom in
             Categories(name: custom.name, imageName: custom.name.lowercased())
@@ -151,22 +151,22 @@ struct MockData {
         let defaultCategories = [
             Categories(name: "Salary",
                       imageName: "salary"),
-            
-            Categories(name: "Allowance",
-                      imageName: "allowance"),
-            
-            Categories(name: "Bonus",
-                      imageName: "bonus"),
-            
-            Categories(name: "Overtime",
-                      imageName: "overtime"),
-            
-            Categories(name: "Invest",
-                      imageName: "invest"),
+        
+        Categories(name: "Allowance",
+                  imageName: "allowance"),
+        
+        Categories(name: "Bonus",
+                  imageName: "bonus"),
+        
+        Categories(name: "Overtime",
+                  imageName: "overtime"),
+        
+        Categories(name: "Invest",
+                  imageName: "invest"),
 
-            Categories(name: "Temporary",
-                      imageName: "temporary"),
-        ]
+        Categories(name: "Temporary",
+                  imageName: "temporary"),
+    ]
         
         // Add custom income categories
         let customIncomeCategories = CustomCategoryManager.shared.customCategoriesForType(isIncome: true).map { custom in

@@ -36,6 +36,8 @@ struct SpentGainedView: View {
             Text(currencyManager.formatAmount(monInt))
                 .fontWeight(.bold)
                 .foregroundColor(information.spentOrGained ? .red : .blue)
+                .lineLimit(1)
+                .minimumScaleFactor(0.7)
         }
     }
 }

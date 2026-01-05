@@ -18,6 +18,8 @@ final class UserSession: ObservableObject {
     @Published var currentUserId: String {
         didSet {
             UserDefaults.standard.set(currentUserId, forKey: defaultsKey)
+            // Notify that user changed
+            NotificationCenter.default.post(name: NSNotification.Name("UserDidChange"), object: nil)
         }
     }
     @Published var savedAccounts: [String] {

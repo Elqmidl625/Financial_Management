@@ -24,6 +24,8 @@ struct sumView: View {
             
             Text(currencyManager.formatAmount(number))
                 .fontWeight(.bold)
+                .lineLimit(1)
+                .minimumScaleFactor(0.7)
         }
         .frame(height: 50)
         .padding(.horizontal)
@@ -39,6 +41,7 @@ struct EachYearView: View {
     @StateObject private var vm = EachYearViewModel()
     
     @State private var isSpentView = true
+    @ObservedObject private var categoryManager = CustomCategoryManager.shared
     
     @EnvironmentObject var dateHolder: DateHolder
     @FetchRequest(fetchRequest: Information.allForCurrentUser()) private var information
