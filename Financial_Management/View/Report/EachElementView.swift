@@ -29,6 +29,8 @@ struct EachElementView: View {
             
             Text(currencyManager.formatAmount(money))
                 .fontWeight(.bold)
+                .lineLimit(1)
+                .minimumScaleFactor(0.7)
             
             Text("\(percent)%")
                 .font(.system(size: 12))

@@ -24,6 +24,8 @@ struct threeRectangle: View {
             Text(currencyManager.formatAmount(number))
                 .fontWeight(.bold)
                 .foregroundColor(color)
+                .lineLimit(1)
+                .minimumScaleFactor(0.7)
         }
         .frame(height: 50)
         .padding(.horizontal)
@@ -39,6 +41,7 @@ struct EachMonthView: View {
     @StateObject private var vm = EachMonthViewModel()
     
     @State private var isSpentView = true
+    @ObservedObject private var categoryManager = CustomCategoryManager.shared
     
     @EnvironmentObject var dateHolder: DateHolder
     @FetchRequest(fetchRequest: Information.allForCurrentUser()) private var information

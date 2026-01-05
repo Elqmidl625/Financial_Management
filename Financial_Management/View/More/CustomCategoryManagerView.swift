@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CustomCategoryManagerView: View {
     @StateObject private var manager = CustomCategoryManager.shared
+    @StateObject private var userSession = UserSession.shared
     @State private var showAddSheet = false
     @State private var selectedCategory: CustomCategory?
     @State private var selectedType: Bool = false  // false = expense, true = income
@@ -72,6 +73,10 @@ struct CustomCategoryManagerView: View {
             selectedCategory = nil
             showAddSheet = false
         }
+        .onChange(of: userSession.currentUserId) {
+            // Reload categories when user changes
+            manager.loadCustomCategories()
+        }
     }
     
     private var filteredCategories: [CustomCategory] {
@@ -81,7 +86,11 @@ struct CustomCategoryManagerView: View {
     private func deleteCategories(at offsets: IndexSet) {
         let categories = filteredCategories
         for index in offsets {
-            manager.deleteCustomCategory(categories[index])
+            do {
+                try manager.deleteCustomCategory(categories[index])
+            } catch {
+                print("Error deleting category: \(error)")
+            }
         }
     }
 }

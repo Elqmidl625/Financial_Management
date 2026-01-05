@@ -7,6 +7,8 @@
 
 import Foundation
 import SwiftUI
+import CoreData
+import UIKit
 
 // Model for custom categories
 struct CustomCategory: Codable, Identifiable, Hashable {
@@ -42,28 +44,51 @@ struct CustomCategory: Codable, Identifiable, Hashable {
     }
 }
 
-// Manager for custom categories using UserDefaults
+// Manager for custom categories using UserDefaults (user-specific)
 class CustomCategoryManager: ObservableObject {
     static let shared = CustomCategoryManager()
     
     @Published var customCategories: [CustomCategory] = []
     
-    private let userDefaultsKey = "customCategories"
+    private var currentUserId: String {
+        UserSession.shared.currentUserId
+    }
+    
+    private func userDefaultsKey(for userId: String) -> String {
+        "customCategories_\(userId)"
+    }
     
     private init() {
         loadCustomCategories()
-    }
-    
-    func loadCustomCategories() {
-        if let data = UserDefaults.standard.data(forKey: userDefaultsKey),
-           let decoded = try? JSONDecoder().decode([CustomCategory].self, from: data) {
-            customCategories = decoded
+        // Observe user changes
+        NotificationCenter.default.addObserver(
+            forName: NSNotification.Name("UserDidChange"),
+            object: nil,
+            queue: .main
+        ) { [weak self] _ in
+            self?.loadCustomCategories()
         }
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    func loadCustomCategories() {
+        let key = userDefaultsKey(for: currentUserId)
+        if let data = UserDefaults.standard.data(forKey: key),
+           let decoded = try? JSONDecoder().decode([CustomCategory].self, from: data) {
+            customCategories = decoded
+        } else {
+            customCategories = []
+        }
+        objectWillChange.send()
+    }
+    
     func saveCustomCategories() {
+        let key = userDefaultsKey(for: currentUserId)
         if let encoded = try? JSONEncoder().encode(customCategories) {
-            UserDefaults.standard.set(encoded, forKey: userDefaultsKey)
+            UserDefaults.standard.set(encoded, forKey: key)
             objectWillChange.send()
         }
     }
@@ -80,9 +105,23 @@ class CustomCategoryManager: ObservableObject {
         }
     }
     
-    func deleteCustomCategory(_ category: CustomCategory) {
+    func deleteCustomCategory(_ category: CustomCategory, provider: InformationProvider = .shared) throws {
+        // Delete all transactions with this category name for current user
+        let context = provider.viewContext
+        let request: NSFetchRequest<Information> = NSFetchRequest(entityName: "Information")
+        request.predicate = NSPredicate(format: "name == %@ AND userId == %@", category.name, currentUserId)
+        
+        let transactions = try context.fetch(request)
+        transactions.forEach { context.delete($0) }
+        
+        // Delete the category
         customCategories.removeAll { $0.id == category.id }
         saveCustomCategories()
+        
+        // Save context
+        if context.hasChanges {
+            try context.save()
+        }
     }
     
     func customCategoriesForType(isIncome: Bool) -> [CustomCategory] {

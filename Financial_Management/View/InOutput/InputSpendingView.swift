@@ -15,6 +15,7 @@ struct InputSpendingView: View {
     @StateObject var viewModel = InputViewModel()
     @State public var Selected: Int = 0
     @Binding var isSpentView: Bool
+    @ObservedObject private var categoryManager = CustomCategoryManager.shared
     
     @State private var showAlert = false
     
@@ -71,8 +72,20 @@ struct InputSpendingView: View {
                 print(error)
             }
         }, label: {
-            Text("Add Transaction")
+            HStack {
+                Image(systemName: "plus.circle.fill")
+                    .font(.title3)
+                Text("Add Transaction")
+                    .fontWeight(.semibold)
+            }
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 14)
+            .background(Color.red)
+            .foregroundColor(.white)
+            .cornerRadius(12)
         })
+        .padding(.horizontal)
+        .padding(.bottom, 8)
         .alert(isPresented: $showAlert) {
             Alert(title: Text("Lack of information!"),
                   message: Text("Did you drop them or something?"),

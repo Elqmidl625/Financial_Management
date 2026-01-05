@@ -158,6 +158,8 @@ struct CategoryBarChartView: View {
                     if let intValue = value.as(Int.self) {
                         Text(currencyManager.formatAmount(intValue))
                             .font(.caption)
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.6)
                     }
                 }
             }
@@ -230,6 +232,8 @@ struct CategoryBarChartView: View {
                     Text(currencyManager.formatAmount(item.amount))
                         .font(.subheadline)
                         .fontWeight(.semibold)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.7)
                         .frame(width: 80, alignment: .trailing)
                 }
                 .padding(.vertical, 4)
@@ -283,6 +287,8 @@ struct StatCard: View {
                 .font(.headline)
                 .fontWeight(.bold)
                 .foregroundColor(color)
+                .lineLimit(1)
+                .minimumScaleFactor(0.7)
         }
         .frame(maxWidth: .infinity)
         .padding(.vertical, 12)
