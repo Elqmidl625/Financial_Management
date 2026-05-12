@@ -50,33 +50,14 @@ class CustomCategoryManager: ObservableObject {
     
     @Published var customCategories: [CustomCategory] = []
     
-    private var currentUserId: String {
-        UserSession.shared.currentUserId
-    }
-    
-    private func userDefaultsKey(for userId: String) -> String {
-        "customCategories_\(userId)"
-    }
+    private let userDefaultsKey = "customCategories_default"
     
     private init() {
         loadCustomCategories()
-        // Observe user changes
-        NotificationCenter.default.addObserver(
-            forName: NSNotification.Name("UserDidChange"),
-            object: nil,
-            queue: .main
-        ) { [weak self] _ in
-            self?.loadCustomCategories()
-        }
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
     }
     
     func loadCustomCategories() {
-        let key = userDefaultsKey(for: currentUserId)
-        if let data = UserDefaults.standard.data(forKey: key),
+        if let data = UserDefaults.standard.data(forKey: userDefaultsKey),
            let decoded = try? JSONDecoder().decode([CustomCategory].self, from: data) {
             customCategories = decoded
         } else {
@@ -86,9 +67,8 @@ class CustomCategoryManager: ObservableObject {
     }
     
     func saveCustomCategories() {
-        let key = userDefaultsKey(for: currentUserId)
         if let encoded = try? JSONEncoder().encode(customCategories) {
-            UserDefaults.standard.set(encoded, forKey: key)
+            UserDefaults.standard.set(encoded, forKey: userDefaultsKey)
             objectWillChange.send()
         }
     }
@@ -109,7 +89,7 @@ class CustomCategoryManager: ObservableObject {
         // Delete all transactions with this category name for current user
         let context = provider.viewContext
         let request: NSFetchRequest<Information> = NSFetchRequest(entityName: "Information")
-        request.predicate = NSPredicate(format: "name == %@ AND userId == %@", category.name, currentUserId)
+        request.predicate = NSPredicate(format: "name == %@", category.name)
         
         let transactions = try context.fetch(request)
         transactions.forEach { context.delete($0) }
@@ -128,4 +108,3 @@ class CustomCategoryManager: ObservableObject {
         customCategories.filter { $0.isIncome == isIncome }
     }
 }
-

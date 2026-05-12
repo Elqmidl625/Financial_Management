@@ -13,54 +13,28 @@ final class AppUITests: XCTestCase {
         continueAfterFailure = false
     }
     
-    func testShowsAuthOnLaunchWhenLoggedOut() {
+    func testShowsMainTabsOnLaunch() {
         let app = XCUIApplication()
         app.launchArguments = ["-uiTestReset"]
         app.launch()
         
-        // Expect the Auth screen
-        XCTAssertTrue(app.staticTexts["Welcome"].waitForExistence(timeout: 5))
-        // Check segmented control options are present
-        XCTAssertTrue(app.segmentedControls.buttons["Sign Up"].exists)
-        XCTAssertTrue(app.segmentedControls.buttons["Log In"].exists)
-    }
-    
-    func testSignUpFlowDismissesToMainTabs() {
-        let app = XCUIApplication()
-        app.launchArguments = ["-uiTestReset"]
-        app.launch()
-        
-        // Fill sign up form
-        let emailField = app.textFields["Email"]
-        XCTAssertTrue(emailField.waitForExistence(timeout: 5))
-        emailField.tap()
-        emailField.typeText("ui_test@example.com")
-        
-        let userNameField = app.textFields["User name"]
-        userNameField.tap()
-        userNameField.typeText("UITest")
-        
-        let passwordField = app.secureTextFields["Password"]
-        passwordField.tap()
-        passwordField.typeText("123456")
-        
-        let confirmField = app.secureTextFields["Confirm password"]
-        confirmField.tap()
-        confirmField.typeText("123456")
-        
-        app.buttons["SignUpSubmit"].tap()
-        
-        // Confirmation dialog appears - choose Not now
-        let notNow = app.buttons["Not now"]
-        XCTAssertTrue(notNow.waitForExistence(timeout: 5))
-        notNow.tap()
-        
-        // Verify main tabs visible
         XCTAssertTrue(app.buttons["Input"].waitForExistence(timeout: 5))
         XCTAssertTrue(app.buttons["Calendar"].exists)
         XCTAssertTrue(app.buttons["Report"].exists)
         XCTAssertTrue(app.buttons["More"].exists)
     }
+    
+    func testMoreScreenDoesNotShowAccountActions() {
+        let app = XCUIApplication()
+        app.launchArguments = ["-uiTestReset"]
+        app.launch()
+        
+        app.buttons["More"].tap()
+        XCTAssertTrue(app.staticTexts["Settings"].waitForExistence(timeout: 5))
+        XCTAssertFalse(app.buttons["Sign Up"].exists)
+        XCTAssertFalse(app.buttons["Log In"].exists)
+        XCTAssertFalse(app.buttons["Sign Out"].exists)
+        XCTAssertFalse(app.buttons["Delete Current Account"].exists)
+    }
 }
-
 

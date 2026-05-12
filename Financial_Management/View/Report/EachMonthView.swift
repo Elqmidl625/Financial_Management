@@ -44,7 +44,7 @@ struct EachMonthView: View {
     @ObservedObject private var categoryManager = CustomCategoryManager.shared
     
     @EnvironmentObject var dateHolder: DateHolder
-    @FetchRequest(fetchRequest: Information.allForCurrentUser()) private var information
+    @FetchRequest(fetchRequest: Information.all()) private var information
     
     var body: some View {
         VStack {

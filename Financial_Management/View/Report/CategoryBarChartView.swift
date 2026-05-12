@@ -16,7 +16,7 @@ struct CategoryBarChartView: View {
     
     @StateObject private var vm = CategoryBarChartViewModel()
     @EnvironmentObject var dateHolder: DateHolder
-    @FetchRequest(fetchRequest: Information.allForCurrentUser()) private var information
+    @FetchRequest(fetchRequest: Information.all()) private var information
     @ObservedObject private var currencyManager = CurrencyManager.shared
     
     var body: some View {
@@ -308,4 +308,3 @@ struct StatCard: View {
         .environmentObject(DateHolder())
     }
 }
-

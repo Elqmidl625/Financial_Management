@@ -15,14 +15,9 @@ final class TransactionsCRUDTests: XCTestCase {
         continueAfterFailure = false
         TestHelper.resetUserDefaults()
         TestHelper.deleteAllEntities()
-        // Ensure we operate under a non-default user
-        try UserSession.shared.ensureUser(email: "crud@example.com", userName: "CRUD", password: "p")
     }
     
     func testCreateReadUpdateDeleteTransaction() throws {
-        let session = UserSession.shared
-        let userId = session.currentUserId
-        
         // Create
         let vm = EditInputViewModel(provider: .shared)
         vm.information.name = "Food"
@@ -36,7 +31,7 @@ final class TransactionsCRUDTests: XCTestCase {
         
         // Read
         let ctx = InformationProvider.shared.viewContext
-        var fetch = Information.allForUser(userId: userId)
+        let fetch = Information.all()
         var results = try ctx.fetch(fetch)
         XCTAssertEqual(results.count, 1)
         XCTAssertEqual(results.first?.name, "Food")
@@ -61,5 +56,3 @@ final class TransactionsCRUDTests: XCTestCase {
         XCTAssertEqual(results.count, 0)
     }
 }
-
-

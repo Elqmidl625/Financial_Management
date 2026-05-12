@@ -15,7 +15,6 @@ final class ReportsTests: XCTestCase {
         continueAfterFailure = false
         TestHelper.resetUserDefaults()
         TestHelper.deleteAllEntities()
-        try UserSession.shared.ensureUser(email: "report@example.com", userName: "Report", password: "p")
     }
     
     func testMonthlyTotalsCalculation() throws {
@@ -36,8 +35,8 @@ final class ReportsTests: XCTestCase {
         
         try ctx.save()
         
-        // Fetch current user's info
-        let fetch = Information.allForUser(userId: UserSession.shared.currentUserId)
+        // Fetch all transactions
+        let fetch = Information.all()
         let infos = try ctx.fetch(fetch)
         
         let month = cal.component(.month, from: thisMonth)
@@ -80,8 +79,5 @@ final class ReportsTests: XCTestCase {
         info.money = money
         info.spentOrGained = spent
         info.dateOfInfor = date
-        info.userId = UserSession.shared.currentUserId
     }
 }
-
-

@@ -17,11 +17,7 @@ enum TestHelper {
     }
     
     static func resetUserDefaults() {
-        UserDefaults.standard.removeObject(forKey: "currentUserId")
-        UserDefaults.standard.removeObject(forKey: "savedAccounts")
-        UserDefaults.standard.set("default", forKey: "currentUserId")
-        UserSession.shared.currentUserId = "default"
-        UserSession.shared.savedAccounts = []
+        UserDefaults.standard.removeObject(forKey: "customCategories_default")
     }
     
     static func deleteAllEntities(file: StaticString = #file, line: UInt = #line) {
@@ -31,10 +27,6 @@ enum TestHelper {
             let infoFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Information")
             let delInfo = NSBatchDeleteRequest(fetchRequest: infoFetch)
             try context.execute(delInfo)
-            // Delete Users
-            let userFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
-            let delUser = NSBatchDeleteRequest(fetchRequest: userFetch)
-            try context.execute(delUser)
             try context.save()
         } catch {
             XCTFail("Failed to cleanup Core Data store: \(error)", file: file, line: line)
@@ -48,5 +40,3 @@ extension XCTestCase {
         RunLoop.current.run(until: until)
     }
 }
-
-

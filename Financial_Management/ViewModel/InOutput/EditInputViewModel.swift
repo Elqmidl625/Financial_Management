@@ -20,9 +20,6 @@ final class EditInputViewModel: ObservableObject {
     }
     
     func save() throws {
-        // Attach to current user before saving
-        let currentId = UserDefaults.standard.string(forKey: "currentUserId") ?? "default"
-        information.userId = currentId
         if context.hasChanges {
             try context.save()
         }
@@ -39,6 +36,4 @@ final class EditInputViewModel: ObservableObject {
         self.information = newInfo
     }
 }
-
-
 

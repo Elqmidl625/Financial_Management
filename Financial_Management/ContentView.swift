@@ -11,7 +11,6 @@ import CoreData
 struct ContentView: View {
     
     let dateHolder = DateHolder()
-    @StateObject private var session = UserSession.shared
     
     var body: some View {
         TabView {
@@ -40,12 +39,6 @@ struct ContentView: View {
                     Image(systemName: "gearshape")
                     Text("More")
                 }
-        }
-        .id(session.currentUserId)   // Recreate the view tree when switching users
-        .fullScreenCover(isPresented: Binding(get: {
-            session.currentUserId == "default"
-        }, set: { _ in })) {
-            AuthView()
         }
     }
 }
